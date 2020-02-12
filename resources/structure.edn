@@ -1,0 +1,158 @@
+[
+  [:heading "Heading"]
+  [:line]
+  [:line "Functionality" 
+    [:line [:bullet "This is a second level bullet" {:type :star}]]
+    [:line]
+    [:line "Level 2 Heading"
+      [:line "Level 2 Body"]
+      [:line "Level 2 Body / Level 3 Heading"
+        [:line "Level 3 Body"]
+      [:line]
+      [:line "Level 2 Body"
+        [:line "Type B"]
+        [:table 
+          [:th "Col1" :| "Col2" "Col3"]
+          [:tr "A" "True" "False"]
+          [:tr "A" "True" "False"]]
+        [:line]]]
+    ]
+    [:line "Level 2 Heading B" {:comment "<- This works"}
+      [:line]
+      [:dict 
+        [:term 
+          "*GTM" 
+          "Global Trade Management System" 
+          {:comment "// This should not bullet"}]
+        [:term 
+          "EODc" 
+          "End of the Day Calculations wrapping of text very special and difficult do later" 
+          {:comment "<- This is hard to do"}]
+      ]
+    ]
+  ]
+]
+
+;; NOTE should we wrap children or no?
+;; NOTE do we need the map? or just have a default position for inline commments?
+
+(defn page 
+  [& children])
+(defn heading 
+  [heading])
+(defn subheading 
+  [subheading])
+(defn line 
+  [text inline-comment & children])
+(defn bullet 
+  [bullet text inline-comment & children])
+(defn block-code 
+  ([code])
+  ([lang code]))
+(defn inline-code 
+  [code])
+
+
+;; not wrapped children
+
+[:page
+ [:subheading 
+   "React Overview"]
+  [:line
+   "Virtual DOM" ""
+   [:bullet 
+     "*" "Reads" ""]
+    [:bullet 
+     "*" "Writes only if needed" ""]
+    [:line]
+    [:line
+     "JSX" ""
+     [:bullet 
+       "-" "Compiles into JavaScript" ""]
+      [:bullet 
+       "-" "Extends JavaScript* Creates React elements" ""]
+      [:line "Has" ""
+       [:bullet 
+         "-" "name" ""
+         [:bullet 
+           "-" "child tags" ""
+           [:line "realated stuff" ""]
+            [:line]
+            [:line "like these" ""]
+            [:line "..." ""]]]
+        [:bullet 
+         "-" "id" ""
+         [:inline-code "blah"]]]]
+    [:line
+     "Isomorphic rendering" ""
+     [:bullet 
+      "-" "renders components on client and server" "<- reseach this"
+      [:line]
+       [:line 
+        "Notes:" ""
+        [:line 
+          "JavaScript-driven MVCs" ""
+          [:block-comment
+            [:bullet 
+              "-" "ie Angular, Backbone, Ember, they all render on DOM load and
+                   this can be bery lag" ""]]
+          [:bullet 
+              "-" "Aren't indexable by search engines unless you are willing to pay
+                   for a third party service" ""]
+        [:line 
+          "installation" ""
+          [:block-code "linux"
+            "npm install <package>"]]]]]]]]
+
+
+;; With wrapped children
+[:page
+ [[:subheading {} 
+   "React Overview"]
+  [:line {:comment ""} 
+   "Virtual DOM" 
+   [[:bullet 
+     "*" "Reads"]
+    [:bullet 
+     "*" "Writes only if needed"]
+    [:line]
+    [:line {}
+     "JSX"
+     [[:bullet 
+       "-" "Compiles into JavaScript"]
+      [:bullet 
+       "-" "Extends JavaScript* Creates React elements"]
+      [:line {} "Has"
+       [[:bullet 
+         "-" "name"
+         [[:bullet 
+           "-" "child tags"
+           [[:line {} "realated stuff"]
+            [:line]
+            [:line {} "like these"]
+            [:line {} "..."]]]]]
+        [:bullet 
+         "-" "id"
+         [[:inline-code "blah"]]]]]]]
+    [:line {}
+     "Isomorphic rendering" 
+     [[:bullet 
+       "-" "renders components on client and server" "<- reseach this"
+      [[:line]
+       [:line {} 
+        "Notes:" 
+        [[:line {} 
+          "JavaScript-driven MVCs"
+          [[:block-comment
+            [[:bullet 
+              "-" "ie Angular, Backbone, Ember, they all render on DOM load and
+                   this can be bery lag"]]]
+           [:bullet 
+              "-" "Aren't indexable by search engines unless you are willing to pay
+                   for a third party service"]]]
+         [:line {} 
+          "installation"
+          [[:block-code "linux"
+            "npm install <package>"]]]]]]]]]]]
+  ]
+]

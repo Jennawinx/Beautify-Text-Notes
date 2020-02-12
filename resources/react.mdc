@@ -1,0 +1,128 @@
+ 
+--------------------- React Overview ----------------------
+ 
+Virtual DOM
+    * Reads
+    * Writes only if needed
+               
+    JSX
+        - Compiles into JavaScript
+        - Extends JavaScript* Creates React elements
+        Has
+            - name
+            - attributes
+            - child tags
+               
+    Isomorphic rendering
+        - renders components on client and server
+                   
+        Notes:
+            JavaScript-driven MVCs
+                - ie Angular, Backbone, Ember, they all render on DOM load and
+                  this can be bery lag
+                - Aren't indexable by search engines unless you are willing to pay
+                  for a third party service
+                - These issues can be solved by rendering JavaScript on the server side
+                  (aka. isomorphic rendering)
+               
+    Unidirectional data flow
+        in two-way data binding, the view gets updated when the state changes and
+        the state changes when the view changes
+                   
+        Angular JS
+            ie. when you change a model in Angular JS, the view automatically reflects those changes
+            In addition, an input field in the view can cause the model to be mutated
+                       
+            Now in a well designed app, admittedly, this does work.
+            But it can cause cascading updates and changing a model could fire off even more event updates
+                   
+        Flux
+            Flux takes a functional approach with unidirectional data flow
+            The view is a function of the application state,
+            So when the application state changes the view automatically re-renders itself.
+                       
+            To put in another way, the same state resultes in the same view
+            and this leads to better predictability
+                       
+            Mutation of data is done via actions.
+                   
+        React and Flux
+            Now if you're going to use React and Flux you have to start thinking about rethinking best practice.
+                       
+            So for example, we're going to be seeing JavaScript and markup in the same file.
+            Sometimes it just makes sense to avoid the separation and there are benefits.
+                       
+            With React, HTML is a projection of state
+                       
+React
+    - Is a view layer
+        - It's the 'V' in MVC
+        - Well-built React components conver 'C' as well
+               
+    - Has no opinion on
+        - Routing
+        - Data Flow
+        - Buid & Deployment
+                   
+Possible Stacks
+    1.
+        Node.js            server-side JavaScript
+        Browserify         to expose Node packages to the browser
+        React Components   for our components
+    2.
+        React Router       for routing through pages
+        Facebook's Flux    for data flow
+        Glup               task runner to put everything together for deployment
+ 
+--------------------- Node JS ----------------------
+ 
+What is it?
+* Server Side JavaScript
+* Non-blocking I/O
+* Uses Google V8 high performance engine
+    means that it is very light weight and efficient
+* Provides package manager npm
+    * thousands of packages avaliable
+    * Easy maintenance and installation
+               
+FYI
+* Node.j Foundation maintains the largest open source library in the world
+ 
+NPM
+* Install and manage dependencies for an app
+    - Like NuGet for .Net
+    - PIP for Python
+ 
+* Quick and easy to use
+* Use NPM to obtain and maintain all out JS libraries
+ 
+CommonJS Pattern
+    - Node.js uses CommonJS for specifying modules
+    - This mean creating a usable module form other modules like syncrinous modules like ATM
+    - first we specify any modules to use by using require statement
+               
+    Specifying modules
+    3 Parts:
+        1. Require statement
+        2. Module declaration
+        3. Export module
+            To expose out modules to other modules so they can reference the new module that we have created
+               
+--------------------- Broswerify ----------------------
+               
+Bundles up Node.js NPM modules
+    - So we can use them in the browser
+    - Easy managing and bundling dependencies
+ 
+NPM has thousands of packages
+    - bundles our npm packages up in one file
+    - using browserify gives you acess to all of them in the broswer
+        So does it download the modules to they are on the client side???
+    - Organize our code
+    - Browser can use all our packages
+    - Uses same module system as Node.js
+        So packages published to NPM that may have originally written for deployment in node,
+        not for the browser, will work in the browser by using browserify
+ 
+Because browserify bundles up all the dependencies into one file, it gives us a performance benefit
+because it reduces the HTTP requests to get out JavaScript modules, it’s going to lead to a faster loading application

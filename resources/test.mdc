@@ -1,0 +1,73 @@
+========================== Heading ===================
+
+Funtionality
+ * This is a second level bullet
+
+    Level 2 Heading
+        Level 2 Body
+        Level 2 Body / Level 3 Heading
+            Level 3 Body
+
+        Level 2 Body
+
+    - This is a dashed bullet
+        o This is a nested circle bullet 1
+            o This is a nested circle bullet 2
+                * Nested bullets should not have colour
+
+    - This is an arrow section
+        -> Arrows must precedence with space\tabs and end with a space
+        -> "Quotes should be fine"
+
+    New Words
+        *GTM    Global Trade Management System              // This should not bullet
+        EODc    End of the Day Calculations                 <- This is hard to do
+                wrapping of text
+                very special and difficult 
+                do later
+
+        Notes:
+            * Make sure to review everything
+
+        Notes:
+        * This is part of the new words body
+
+        Beautiful Table 
+            Type A
+            Col1        Col 2                    Col "3"
+            --------------------------------------------
+            A           To Be ...                False      <- harder to do
+                        Or not be                           <- smart tabing
+
+            A           True
+
+            Notes:
+                Tables must have at least 2 columns
+                All leaves do not have colouring
+
+            Type B
+                Col1       |    Col2            Col3
+                -------------------------------------
+                A               True            False
+                A               True            False
+                
+------------------------ Sub Heading -----------------------
+
+https://www.google.ca
+
+[lala land] https://www.google.ca
+
+    This is a table
+    [lala] https://www.google.ca
+/*
+    Notes for me ....
+*/
+
+```<Python>
+    
+    python -m pip install django
+
+```
+
+------------------------------------------------------------
+

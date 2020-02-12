@@ -1,0 +1,48 @@
+
+Notes
+    * No formating should be applied to lead level text
+    * Inline commments are applicable everywhere
+    * Empty lines are respected
+    * Indentation are respected
+    * Hanging tab alignment will understand how to resolve text wrapping
+      with the previous structure
+    * no structures allowed in unlined-table or table
+    * all wrappers have to be on a new line
+
+    * Nodes can hold structures
+    * Leafs cannot hold stuctures
+
+Types of format structures
+
+    Recursively Nestable Nodes
+        body-group
+        list                                "*" "o" "-"     bulleted, numbered
+        heading                             "====s===="
+        subheading                          "----s----"
+        divider                             "----"
+
+    Non-Resursive Node structures
+        block-comment                       "*/" "\*"       can have structure in comment block
+
+    Leaf structures
+        plaintext                           "~~~" wrappers
+        inline-code                         ">>>" 
+        block-code                          "```" wrappers
+        local-link                          images, lcoal files on the computer
+        external-link                       urls
+        unlined-table                       <- make this simiply respect tab alignment
+                                               => unlined table
+        *table                              <- lined table TODO, define an easy to parse format
+
+    Endline decorators
+        inline-comment                      "//" "#" "<-"
+
+    Global 
+        Meta 
+            Global default language definition              programming language for all files
+            Format/Display Settigns                         colour
+            Highlighting                                    TODO, NOTE, FIX, IMPORTANT
+        Wrappers 
+            code-lang                       <lang> wraps    Sectioned language definitions              
+                                                                most inner definition takes precedence
+            page                                            auto

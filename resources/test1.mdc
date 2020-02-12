@@ -1,0 +1,19 @@
+
+======================== React ===========================
+
+--------------------- React Overview ----------------------
+ 
+Virtual DOM                                                 <- 0                                                 
+    * Reads
+    * Writes only if needed
+               
+    JSX                                                     <- 1
+        - Compiles into JavaScript
+        ------------------- Happy ------------------------
+            - Extends JavaScript* Creates React elements
+        Has                                                 <- 2
+            - name                                          <- 3
+                - child tags                                <- 4
+                    realated stuff
+
+                    like these                              <- 5

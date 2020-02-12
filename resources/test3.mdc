@@ -1,0 +1,35 @@
+
+--------------------- React Overview ----------------------
+ 
+Virtual DOM
+    * Reads
+    * Writes only if needed
+               
+    JSX
+        - Compiles into JavaScript
+        - Extends JavaScript* Creates React elements
+        Has
+            - name
+                - child tags
+                    realated stuff
+
+                    like these
+                    ...
+            - id
+                >>> blah
+               
+    Isomorphic rendering
+        - renders components on client and server           <- reseach this
+                   
+        Notes:
+            JavaScript-driven MVCs
+                /*
+                - ie Angular, Backbone, Ember, they all render on DOM load and
+                  this can be bery lag
+                */
+                - Aren't indexable by search engines unless you are willing to pay
+                  for a third party service
+            installation
+                ```<linux>
+                    npm install <package>
+                ```
