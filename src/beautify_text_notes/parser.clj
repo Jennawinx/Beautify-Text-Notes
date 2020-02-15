@@ -23,10 +23,9 @@
   (some? (re-find heading-title-regex text)))
 
 (defn heading 
-  [level text]
+  [text]
   {:type     :heading
    :text     (re-find heading-title-regex text)
-   :level    level
    :children []})
 
 (defn subheading?
@@ -34,10 +33,9 @@
   (some? (re-find subheading-title-regex text)))
 
 (defn subheading 
-  [level text]
+  [text]
   {:type     :subheading
    :text     (re-find subheading-title-regex text)
-   :level    level
    :children []})
 
 (defn divider?
@@ -45,9 +43,8 @@
   (some? (re-find divider-regex text)))
 
 (defn divider
-  [level]
+  []
   {:type     :divider
-   :level    level
    :children []})
 
 (defn get-inline-comment 
@@ -57,16 +54,14 @@
     ""))
 
 (defn blank
-  [level]
-  {:type :blank
-   :level level})
+  []
+  {:type :blank})
 
 (defn text-line
-  [level text inline-comment]
+  [text inline-comment]
   {:type           :text-line
    :inline-comment inline-comment
    :text           text
-   :level          level
    :children       []})
 
 (defn list-item?
@@ -74,20 +69,18 @@
   (some? (re-find check-list-regex text)))
 
 (defn list-item 
-  [level text inline-comment]
+  [text inline-comment]
   (let [[_ symbol text] (re-find parse-list-regex text)] 
     {:type           :list-item
      :symbol         symbol
      :text           text
      :inline-comment inline-comment
-     :level          level
      :children       []}))
 
 (defn invalid-line 
-  [level line & [error]]
+  [line & [error]]
   {:type      :invalid-line
    :text      line
-   :level     level
    :error-msg error})
 
 (defn parse-line 
@@ -112,16 +105,16 @@
      (cond 
           ;; check for blank lines
           (s/blank? line)
-          (blank last-level)
+          (blank)
     
           ;; check of invalid indentation/structures
           (not (and (int? level)
                     (<= level (inc last-level))))
-          (invalid-line level line "invalid indentation")
+          (invalid-line line "invalid indentation")
     
           ;; single-line comment
           (and (= num-columns 0) inline-comment)
-          (text-line level "" inline-comment)
+          (text-line "" inline-comment)
     
           ;; single columns
           (= num-columns 1)
@@ -129,27 +122,27 @@
             (cond 
               ;; check for list items
               (list-item? text)
-              (list-item level text inline-comment)
+              (list-item text inline-comment)
     
               ;; check for heading 
               (heading? text)
-              (heading level text)
+              (heading text)
     
               ;; check for subheading
               (subheading? text)
-              (subheading level text)
+              (subheading text)
               
               ;; check for divider
               (divider? text)
-              (divider level)
+              (divider)
     
               ;; check for single lines
               :else
-              (text-line level text inline-comment)))
+              (text-line text inline-comment)))
     
           ;; rest are invalid
           :else 
-          (invalid-line level line))]))
+          (invalid-line line))]))
 
 (defn parse-mdc
   [{:keys [last-line level-pointers last-level result] :as data} line]
