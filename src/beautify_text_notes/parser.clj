@@ -18,6 +18,12 @@
     [(- (.length line) (.length trimed))
      trimed])) 
 
+(defn page 
+  [file]
+  {:type      :page
+    :title    (last (s/split file #"/"))
+    :children []})
+
 (defn heading?
   [text]
   (some? (re-find heading-title-regex text)))
@@ -49,7 +55,8 @@
 
 (defn get-inline-comment 
   [comment]
-  (if-let [[_ symbol comment] (some->> comment (re-find parse-inline-comment-regex))]
+  (if-let [[_ symbol comment-text] (some->> comment (re-find parse-inline-comment-regex))]
+    ;; NOTE this is just the simple way
     comment
     ""))
 
@@ -168,12 +175,11 @@
                    num-parent-children (.length (get-in data (conj parent-location :children)))
                    insert-to           (conj parent-location :children num-parent-children)]
 
-               (do (prn last-level level)
                (-> data
-                                (assoc :last-line parsed-line)
-                                (assoc :last-level level)
-                                (assoc-in [:level-pointers level] insert-to)
-                                (assoc-in insert-to parsed-line)))))
+                  (assoc :last-line parsed-line)
+                  (assoc :last-level level)
+                  (assoc-in [:level-pointers level] insert-to)
+                  (assoc-in insert-to parsed-line))))
            ))
 
 (defn mdc->structure
@@ -186,7 +192,7 @@
                               0     [:result]}
              :last-line      nil
              :last-level     0
-             :result         {:type :page
-                              :children []}}
+             :result         (page file)}
           (line-seq rdr)))
        (:result)))
+

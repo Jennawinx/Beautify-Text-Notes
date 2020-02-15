@@ -2,12 +2,14 @@
   (:require
     [clojure.string :as s]
     [hiccup.core :as h]
-    [clojure.walk :as w :only [prewalk]]
+    [beautify-web.core :as bw]
     clojure.pprint))
 
 (defn page 
-  [_ rendered-children]
-  [:div.page rendered-children])
+  [{:keys [title]} rendered-children]
+  [:div.page 
+    [:div.page-title title]
+    rendered-children])
 
 (defn heading 
   [{:keys [text]} rendered-children]
@@ -58,29 +60,21 @@
    :list-item    list-item
    :page         page})
 
-(defn render-structure 
+(defn create-hiccup 
   [{:keys [type children] :as structure}]
   (if (sequential? structure)
-    (-> (map render-structure structure)
+    (-> (map create-hiccup structure)
         (into [:div.note-body])
         (vec))
     (let [render-fn (get render type)] 
-       (when-not render-fn (print "nil" structure))
        (if children
-          (render-fn structure (render-structure children))
+          (render-fn structure (create-hiccup children))
           (render-fn structure)))))
 
-; #_(let [counter     (atom 0)
-;       print-touch (fn [x]
-;                     (print (swap! counter inc) ":" (pr-str x) "→ "))
-;       change-type (fn [x]
-;                     (let [new-x (if (vector? x)
-;                                   (apply list x)
-;                                   (str x))]
-;                       (prn new-x)
-;                       new-x))]
-;   (w/prewalk (fn [x]
-;                           (print-touch x)
-;                           (change-type x))
-;                          [:a [:ba :bb] :c]))
-
+(defn render-structure
+  [structure]
+  (-> (create-hiccup structure)
+      (h/html)
+      ;; templating from here?
+      (bw/beautify-html)
+      ))

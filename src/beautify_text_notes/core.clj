@@ -1,7 +1,6 @@
 (ns beautify-text-notes.core
   (:require
     [clojure.string :as s]
-    [hiccup.core :as h]
     [beautify-text-notes.parser :as p]
     [beautify-text-notes.render :as r]
     clojure.pprint)
@@ -21,15 +20,9 @@ https://www.tutorialspoint.com/clojure/clojure_file_io.htm
    "color-level3" "lightblue"})
 
 (defn create-html 
-  [save-as hiccup]
+  [html save-as]
   (with-open [w (clojure.java.io/writer save-as :append false)]
-    (.write w (h/html hiccup))))
-
-#_(create-html 
-       save-file
-       [:html 
-         [:head [:title "Hello"]]
-         [:body [:div {:style {:color "red"}} [:p "Hello World!"]]]])
+    (.write w html)))
 
 (defn get-settings 
   []
@@ -58,7 +51,6 @@ https://www.tutorialspoint.com/clojure/clojure_file_io.htm
      ; (prn root-dir)
      ; (prn file-list)
      
-
      ;; Read file in list and parse each one
      #_(-> (map p/mdc->structure file-list)
          ;; ^ is a lazy seq
@@ -66,14 +58,10 @@ https://www.tutorialspoint.com/clojure/clojure_file_io.htm
 
      (-> (p/mdc->structure "./resources/test1.mdc")
          (r/render-structure)
-         (clojure.pprint/pprint))
-     ; (clojure.pprint/pprint (mdc->structure "./resources/react.mdc"))
-          
-
-     #_(prn "        - renders components on client and server           <- reseach this")
-     #_(-> (parse-line 1 "        - renders components on client and server           <- reseach this")
-         (prn))
-
+         (create-html save-file)
+         ; (clojure.pprint/pprint)
+         )     
+     
      ;; Write output
      ))
 
