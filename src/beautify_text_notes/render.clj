@@ -3,22 +3,23 @@
     [clojure.string :as s]
     [hiccup.core :as h]
     [beautify-web.core :as bw]
+    [selmer.parser :as sp]
     clojure.pprint))
 
 (defn page 
   [{:keys [title]} rendered-children]
-  [:div.page 
+  [:section.page 
     [:div.page-title title]
     rendered-children])
 
 (defn heading 
   [{:keys [text]} rendered-children]
-  [:div.heading text 
+  [:section.heading text 
     rendered-children])
 
 (defn subheading 
   [{:keys [text]} rendered-children]
-  [:div.subheading text 
+  [:section.subheading text 
     rendered-children])
 
 (defn divider
@@ -34,21 +35,21 @@
 (defn text-line
   [{:keys [text inline-comment]} rendered-children]
   [:div.line 
-    [:span.text-line text]
-    [:span.inline-comment inline-comment]
+    [:div.text-line text]
+    [:div.inline-comment inline-comment]
     rendered-children])
 
 (defn list-item 
   [{:keys [text symbol inline-comment]} rendered-children]
   [:div.list-item
-    [:span.bullet symbol]
-    [:span.list-text text]
-    [:span.inline-comment inline-comment]
+    [:div.bullet symbol]
+    [:div.list-text text]
+    [:div.inline-comment inline-comment]
     rendered-children])
 
 (defn invalid-line 
   [{:keys [text]}]
-  [:span.invalid-line text])
+  [:pre.invalid-line text])
 
 (def render 
   {:invalid-line invalid-line
@@ -61,20 +62,31 @@
    :page         page})
 
 (defn create-hiccup 
-  [{:keys [type children] :as structure}]
+  [{:keys [type children plain-wrapper] :as structure}]
   (if (sequential? structure)
-    (-> (map create-hiccup structure)
-        (into [:div.note-body])
-        (vec))
+    (map create-hiccup structure)
     (let [render-fn (get render type)] 
        (if children
-          (render-fn structure (create-hiccup children))
+          (render-fn structure 
+            (-> (create-hiccup children)
+                (into 
+                  (if plain-wrapper
+                    [:div]
+                    [:div.note-body]))
+                (vec)))
           (render-fn structure)))))
 
+;; REMOVE
+(defn pt [x]
+  (prn x)
+  x)
+
 (defn render-structure
-  [structure]
-  (-> (create-hiccup structure)
-      (h/html)
-      ;; templating from here?
-      (bw/beautify-html)
-      ))
+  [structure notebook-name]
+  (->> (create-hiccup structure)
+       (h/html)
+       (bw/beautify-html)
+       (assoc {:notebook-name notebook-name
+               :css           (slurp "./resources/content.css")} 
+               :content)
+       (sp/render-file "content.html")))

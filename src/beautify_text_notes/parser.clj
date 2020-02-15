@@ -3,8 +3,6 @@
     [clojure.string :as s]
     clojure.pprint))
 
-;; TODO, probably don't need to pass level all the way, level can be inferred
-
 (def heading-title-regex #"(?!=)(?<=====).+(?<!=)(?=====)")
 (def subheading-title-regex #"(?!-)(?<=----).+(?<!-)(?=----)")
 (def check-list-regex #"^([-*o•]|\d+\.)\s+.+")
@@ -13,16 +11,18 @@
 (def divider-regex #"^----+$")
 
 (defn consume-indent 
-  [line] ;; -> num-spaces rest-line
+  "Returns: num-spaces rest-line"
+  [line]
   (let [trimed (s/triml line)]
     [(- (.length line) (.length trimed))
      trimed])) 
 
 (defn page 
   [file]
-  {:type      :page
-    :title    (last (s/split file #"/"))
-    :children []})
+  {:type            :page
+    :title          (last (s/split file #"/"))
+    :children       []
+    :plain-wrapper  true})
 
 (defn heading?
   [text]
@@ -153,7 +153,6 @@
 
 (defn parse-mdc
   [{:keys [last-line level-pointers last-level result] :as data} line]
-         ; (prn last)
          (prn line)
          (let [[level {:keys [text type] :as parsed-line}] (parse-line last-level line)
                data   (assoc data :last-line parsed-line)]

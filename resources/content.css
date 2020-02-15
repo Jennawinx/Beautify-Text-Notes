@@ -1,0 +1,58 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Courier New, Courier, monospace;
+}
+
+pre {
+    font-size: larger;
+}
+
+.container {
+    
+}
+
+.main {
+    
+}
+
+.page {
+    
+}
+
+.page-title {
+    
+}
+
+.note-body {
+    margin-left: 2ch;
+}
+
+.list-item {
+    
+}
+
+.bullet {
+    
+}
+
+.list-text {
+    
+}
+
+.inline-comment {
+    color: mediumseagreen;
+}
+
+.note-body {
+    
+}
+
+.line {
+    
+}
+
+.text-line {
+    
+}

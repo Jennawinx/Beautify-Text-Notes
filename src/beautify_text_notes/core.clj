@@ -17,7 +17,8 @@ https://www.tutorialspoint.com/clojure/clojure_file_io.htm
    "save-as" "output.html",
    "color-level1" "maroon", 
    "color-level2" "salmon",
-   "color-level3" "lightblue"})
+   "color-level3" "lightblue"
+   "notebook-name" "My Notebook"})
 
 (defn create-html 
   [html save-as]
@@ -42,7 +43,7 @@ https://www.tutorialspoint.com/clojure/clojure_file_io.htm
   []
   (let [;; Read settings
         settings  (get-settings)
-        {:strs [root-dir save-dir save-as]} settings
+        {:strs [root-dir save-dir save-as notebook-name]} settings
         save-file (str save-dir save-as)
         file-list (mapv str (filter #(and (.isFile %) (s/ends-with? % ".mdc")) 
                                     (file-seq (clojure.java.io/file root-dir))))]
@@ -51,18 +52,16 @@ https://www.tutorialspoint.com/clojure/clojure_file_io.htm
      ; (prn root-dir)
      ; (prn file-list)
      
-     ;; Read file in list and parse each one
+     ;; Read file in list, parse each one, render and save to html
      #_(-> (map p/mdc->structure file-list)
          ;; ^ is a lazy seq
          (prn))
 
-     (-> (p/mdc->structure "./resources/test1.mdc")
-         (r/render-structure)
+     (-> (p/mdc->structure "./test-resources/test1.mdc")
+         (r/render-structure notebook-name)
          (create-html save-file)
          ; (clojure.pprint/pprint)
          )     
-     
-     ;; Write output
      ))
 
 
