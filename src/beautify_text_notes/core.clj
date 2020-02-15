@@ -3,6 +3,7 @@
     [clojure.string :as s]
     [hiccup.core :as h]
     [beautify-text-notes.parser :as p]
+    [beautify-text-notes.render :as r]
     clojure.pprint)
   (:gen-class))
 
@@ -41,7 +42,7 @@ https://www.tutorialspoint.com/clojure/clojure_file_io.htm
                 (apply assoc result)))
            {}
            (line-seq rdr)))
-    default-settings))
+    default-settings)) 
 
 (defn -main
   ""
@@ -63,7 +64,9 @@ https://www.tutorialspoint.com/clojure/clojure_file_io.htm
          ;; ^ is a lazy seq
          (prn))
 
-     (clojure.pprint/pprint (p/mdc->structure "./resources/test1.mdc"))
+     (-> (p/mdc->structure "./resources/test1.mdc")
+         (r/render-structure)
+         (clojure.pprint/pprint))
      ; (clojure.pprint/pprint (mdc->structure "./resources/react.mdc"))
           
 

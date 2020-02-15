@@ -1,158 +1,184 @@
-[
-  [:heading "Heading"]
-  [:line]
-  [:line "Functionality" 
-    [:line [:bullet "This is a second level bullet" {:type :star}]]
-    [:line]
-    [:line "Level 2 Heading"
-      [:line "Level 2 Body"]
-      [:line "Level 2 Body / Level 3 Heading"
-        [:line "Level 3 Body"]
-      [:line]
-      [:line "Level 2 Body"
-        [:line "Type B"]
-        [:table 
-          [:th "Col1" :| "Col2" "Col3"]
-          [:tr "A" "True" "False"]
-          [:tr "A" "True" "False"]]
-        [:line]]]
-    ]
-    [:line "Level 2 Heading B" {:comment "<- This works"}
-      [:line]
-      [:dict 
-        [:term 
-          "*GTM" 
-          "Global Trade Management System" 
-          {:comment "// This should not bullet"}]
-        [:term 
-          "EODc" 
-          "End of the Day Calculations wrapping of text very special and difficult do later" 
-          {:comment "<- This is hard to do"}]
-      ]
-    ]
-  ]
-]
+{:level-pointers
+ {-1 [:result],
+  0 [:result :children 4],
+  1 [:result :children 4 :children 3],
+  2 [:result :children 4 :children 3 :children 5],
+  3 [:result :children 4 :children 3 :children 5 :children 0],
+  4
+  [:result
+   :children
+   4
+   :children
+   3
+   :children
+   5
+   :children
+   0
+   :children
+   0],
+  5
+  [:result
+   :children
+   4
+   :children
+   3
+   :children
+   5
+   :children
+   0
+   :children
+   0
+   :children
+   1]},
+ :last-line {:type :blank, :level 5},
+ :last-level 5,
+ :result
+ {:type :page,
+  :children
+  [{:type :blank, :level 0}
+   {:type :heading, :text " React ", :level 0, :children []}
+   {:type :text-line,
+    :inline-comment "hi",
+    :text "",
+    :level 0,
+    :children []}
+   {:type :subheading,
+    :text " React Overview ",
+    :level 0,
+    :children [{:type :blank, :level 0}]}
+   {:type :text-line,
+    :inline-comment "0",
+    :text "Virtual DOM",
+    :level 0,
+    :children
+    [{:type :blank, :level 0}
+     {:type :list-item,
+      :symbol "*",
+      :text "Reads",
+      :inline-comment "",
+      :level 1,
+      :children []}
+     {:type :list-item,
+      :symbol "*",
+      :text "Writes only if needed",
+      :inline-comment "",
+      :level 1,
+      :children [{:type :blank, :level 1}]}
+     {:type :text-line,
+      :inline-comment "1",
+      :text "JSX",
+      :level 1,
+      :children
+      [{:type :blank, :level 1}
+       {:type :blank, :level 1}
+       {:type :divider, :level 2, :children [{:type :blank, :level 2}]}
+       {:type :list-item,
+        :symbol "-",
+        :text "Compiles into JavaScript",
+        :inline-comment "",
+        :level 2,
+        :children [{:type :blank, :level 2}]}
+       {:type :subheading,
+        :text " Happy ",
+        :level 2,
+        :children
+        [{:type :list-item,
+          :symbol "-",
+          :text "Extends JavaScript* Creates React elements",
+          :inline-comment "",
+          :level 3,
+          :children []}]}
+       {:type :text-line,
+        :inline-comment "2",
+        :text "Has",
+        :level 2,
+        :children
+        [{:type :list-item,
+          :symbol "-",
+          :text "name",
+          :inline-comment "3",
+          :level 3,
+          :children
+          [{:type :list-item,
+            :symbol "-",
+            :text "child tags",
+            :inline-comment "4",
+            :level 4,
+            :children
+            [{:type :text-line,
+              :inline-comment "",
+              :text "realated stuff",
+              :level 5,
+              :children [{:type :blank, :level 5}]}
+             {:type :text-line,
+              :inline-comment "5",
+              :text "like these",
+              :level 5,
+              :children [{:type :blank, :level 5}]}]}]}]}]}]}]}}
 
-;; NOTE should we wrap children or no?
-;; NOTE do we need the map? or just have a default position for inline commments?
-
-(defn page 
-  [& children])
-(defn heading 
-  [heading])
-(defn subheading 
-  [subheading])
-(defn line 
-  [text inline-comment & children])
-(defn bullet 
-  [bullet text inline-comment & children])
-(defn block-code 
-  ([code])
-  ([lang code]))
-(defn inline-code 
-  [code])
-
-
-;; not wrapped children
-
-[:page
- [:subheading 
-   "React Overview"]
-  [:line
-   "Virtual DOM" ""
-   [:bullet 
-     "*" "Reads" ""]
-    [:bullet 
-     "*" "Writes only if needed" ""]
-    [:line]
-    [:line
-     "JSX" ""
-     [:bullet 
-       "-" "Compiles into JavaScript" ""]
-      [:bullet 
-       "-" "Extends JavaScript* Creates React elements" ""]
-      [:line "Has" ""
-       [:bullet 
-         "-" "name" ""
-         [:bullet 
-           "-" "child tags" ""
-           [:line "realated stuff" ""]
-            [:line]
-            [:line "like these" ""]
-            [:line "..." ""]]]
-        [:bullet 
-         "-" "id" ""
-         [:inline-code "blah"]]]]
-    [:line
-     "Isomorphic rendering" ""
-     [:bullet 
-      "-" "renders components on client and server" "<- reseach this"
-      [:line]
-       [:line 
-        "Notes:" ""
-        [:line 
-          "JavaScript-driven MVCs" ""
-          [:block-comment
-            [:bullet 
-              "-" "ie Angular, Backbone, Ember, they all render on DOM load and
-                   this can be bery lag" ""]]
-          [:bullet 
-              "-" "Aren't indexable by search engines unless you are willing to pay
-                   for a third party service" ""]
-        [:line 
-          "installation" ""
-          [:block-code "linux"
-            "npm install <package>"]]]]]]]]
-
-
-;; With wrapped children
-[:page
- [[:subheading {} 
-   "React Overview"]
-  [:line {:comment ""} 
-   "Virtual DOM" 
-   [[:bullet 
-     "*" "Reads"]
-    [:bullet 
-     "*" "Writes only if needed"]
-    [:line]
-    [:line {}
-     "JSX"
-     [[:bullet 
-       "-" "Compiles into JavaScript"]
-      [:bullet 
-       "-" "Extends JavaScript* Creates React elements"]
-      [:line {} "Has"
-       [[:bullet 
-         "-" "name"
-         [[:bullet 
-           "-" "child tags"
-           [[:line {} "realated stuff"]
-            [:line]
-            [:line {} "like these"]
-            [:line {} "..."]]]]]
-        [:bullet 
-         "-" "id"
-         [[:inline-code "blah"]]]]]]]
-    [:line {}
-     "Isomorphic rendering" 
-     [[:bullet 
-       "-" "renders components on client and server" "<- reseach this"
-      [[:line]
-       [:line {} 
-        "Notes:" 
-        [[:line {} 
-          "JavaScript-driven MVCs"
-          [[:block-comment
-            [[:bullet 
-              "-" "ie Angular, Backbone, Ember, they all render on DOM load and
-                   this can be bery lag"]]]
-           [:bullet 
-              "-" "Aren't indexable by search engines unless you are willing to pay
-                   for a third party service"]]]
-         [:line {} 
-          "installation"
-          [[:block-code "linux"
-            "npm install <package>"]]]]]]]]]]]
-  ]
-]
+[:div.page
+ [:div.note-body
+  [:br]
+  [:div.heading " React " [:div.note-body]]
+  [:div.line
+   [:span.text-line ""]
+   [:span.inline-comment "hi"]
+   [:div.note-body]]
+  [:div.subheading " React Overview " [:div.note-body [:br]]]
+  [:div.line
+   [:span.text-line "Virtual DOM"]
+   [:span.inline-comment "0"]
+   [:div.note-body
+    [:br]
+    [:div.list-item
+     [:span.bullet "*"]
+     [:span.list-text "Reads"]
+     [:span.inline-comment ""]
+     [:div.note-body]]
+    [:div.list-item
+     [:span.bullet "*"]
+     [:span.list-text "Writes only if needed"]
+     [:span.inline-comment ""]
+     [:div.note-body [:br]]]
+    [:div.line
+     [:span.text-line "JSX"]
+     [:span.inline-comment "1"]
+     [:div.note-body
+      [:br]
+      [:br]
+      [:div [:hr] [:div.note-body [:br]]]
+      [:div.list-item
+       [:span.bullet "-"]
+       [:span.list-text "Compiles into JavaScript"]
+       [:span.inline-comment ""]
+       [:div.note-body [:br]]]
+      [:div.subheading
+       " Happy "
+       [:div.note-body
+        [:div.list-item
+         [:span.bullet "-"]
+         [:span.list-text "Extends JavaScript* Creates React elements"]
+         [:span.inline-comment ""]
+         [:div.note-body]]]]
+      [:div.line
+       [:span.text-line "Has"]
+       [:span.inline-comment "2"]
+       [:div.note-body
+        [:div.list-item
+         [:span.bullet "-"]
+         [:span.list-text "name"]
+         [:span.inline-comment "3"]
+         [:div.note-body
+          [:div.list-item
+           [:span.bullet "-"]
+           [:span.list-text "child tags"]
+           [:span.inline-comment "4"]
+           [:div.note-body
+            [:div.line
+             [:span.text-line "realated stuff"]
+             [:span.inline-comment ""]
+             [:div.note-body [:br]]]
+            [:div.line
+             [:span.text-line "like these"]
+             [:span.inline-comment "5"]
+             [:div.note-body [:br]]]]]]]]]]]]]]]
