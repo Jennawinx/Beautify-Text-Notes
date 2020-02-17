@@ -15,8 +15,8 @@ https://www.tutorialspoint.com/clojure/clojure_file_io.htm
 "
 
 (def default-settings 
-  {"root-dir" ".", 
-   "save-dir" ".",
+  {"root-dir" "./", 
+   "save-dir" "./",
    "save-as" "output.html",
    "color-level1" "maroon", 
    "color-level2" "salmon",
@@ -45,7 +45,7 @@ https://www.tutorialspoint.com/clojure/clojure_file_io.htm
   [rendered-pages notebook-name]
   (sp/render-file "content.html" 
     {:notebook-name notebook-name
-     :css           (slurp "./resources/content.css")
+     :css           (slurp (clojure.java.io/resource "content.css"))
      :time-stamp    (.toString (java.util.Date.))
      :pages         rendered-pages}))
 
