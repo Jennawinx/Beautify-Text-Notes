@@ -16,14 +16,14 @@ Isomorphic rendering
 
 Flux
     Avoids traditional MVC pattern
-    - problems occur when you have complex interactions with models and views
+        - problems occur when you have complex interactions with models and views
 
     Uses one way data flow
-    - makes app logic easier to reason about 
-    - avoids the complexities inherent in MVC
-    - avoids interactions between multiple views and models
-    - view is a function of the spplication state
-    - better predictability
+        - makes app logic easier to reason about 
+        - avoids the complexities inherent in MVC
+        - avoids interactions between multiple views and models
+        - view is a function of the spplication state
+        - better predictability
 
     Flux Data Flow
 
@@ -32,27 +32,27 @@ Flux
     ^Isn't that the MVC????
 
     Actions
-    - methods that enables the passing of data to dispatchers
-    - action creator creates actions 
-    - view gets updated when action is fired
+        - methods that enables the passing of data to dispatchers
+        - action creator creates actions 
+        - view gets updated when action is fired
 
     Dispatcher 
-    - callback registary 
-    - list of all the stores it will have to send actions to 
-    - dispatchers collects actions and broadcast the actions and their data (payload) 
-      to all registered callbacks
+        - callback registary 
+        - list of all the stores it will have to send actions to 
+        - dispatchers collects actions and broadcast the actions and their data (payload) 
+          to all registered callbacks
 
     Store
-    - Containers for application state and application logic
-    - The only entry to the store is a callback that's registered to the dispatcher
-    - once the store makes changes to state, it emites a change event and notifies the controller 
-      view that the state has changed
+        - Containers for application state and application logic
+        - The only entry to the store is a callback that's registered to the dispatcher
+        - once the store makes changes to state, it emites a change event and notifies the controller 
+          view that the state has changed
 
     React Views
-    - react components that takes state from stores and transmit them through props to child 
-      components
-    - views takes state and renders it
-    - also accepts user input
+        - react components that takes state from stores and transmit them through props to child 
+          components
+        - views takes state and renders it
+        - also accepts user input
 
 
 

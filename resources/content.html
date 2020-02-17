@@ -4,10 +4,10 @@
 <head>
 <meta charset="utf-8">
 <title>{{ notebook-name }}</title>
-<!-- <style>
+<style>
 {{ css }}
-</style> -->
-<link rel="stylesheet" type="text/css" href="../resources/content.css">
+</style>
+<!-- <link rel="stylesheet" type="text/css" href="../resources/content.css"> -->
 </head>
 <body>
 <div class="container">
@@ -16,7 +16,9 @@
         <div class=notebook-timestamp>{{ time-stamp }}</div>    
         <div class=notebook-title>{{ notebook-name }}</div>
     </div>
-    {{ content|safe }}
+    {% for page in pages %}
+        {{ page|safe }}
+    {% endfor %}
 </div>
 </div>
 </body>

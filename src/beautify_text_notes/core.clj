@@ -3,6 +3,9 @@
     [clojure.string :as s]
     [beautify-text-notes.parser :as p]
     [beautify-text-notes.render :as r]
+    [selmer.parser :as sp]
+    [beautify-web.core :as bw]
+    [hiccup.core :as h]
     clojure.pprint)
   (:gen-class))
 
@@ -38,6 +41,14 @@ https://www.tutorialspoint.com/clojure/clojure_file_io.htm
            (line-seq rdr)))
     default-settings)) 
 
+(defn render-html
+  [rendered-pages notebook-name]
+  (sp/render-file "content.html" 
+    {:notebook-name notebook-name
+     :css           (slurp "./resources/content.css")
+     :time-stamp    (.toString (java.util.Date.))
+     :pages         rendered-pages}))
+
 (defn -main
   ""
   []
@@ -45,21 +56,30 @@ https://www.tutorialspoint.com/clojure/clojure_file_io.htm
         settings  (get-settings)
         {:strs [root-dir save-dir save-as notebook-name]} settings
         save-file (str save-dir save-as)
-        file-list (mapv str (filter #(and (.isFile %) (s/ends-with? % ".mdc")) 
-                                    (file-seq (clojure.java.io/file root-dir))))]
+        file-list (mapv #(str root-dir %) 
+                        (filter #(s/ends-with? % ".mdc") 
+                        (seq (.list (clojure.java.io/file root-dir)))))]
      
-     ; (prn (get-settings))
+     (prn)
+     (prn (get-settings))
      ; (prn root-dir)
-     ; (prn file-list)
-     
-     ;; Read file in list, parse each one, render and save to html
-     #_(-> (map p/mdc->structure file-list)
-         ;; ^ is a lazy seq
-         (prn))
+     (prn file-list)
+     (prn)
+     (prn)
 
-     (-> (p/mdc->structure "./test-resources/test1.mdc")
+     (-> ;; Read file in list, parse each one, render a html per page
+         (map #(-> (p/mdc->structure %)
+                   (r/create-hiccup)
+                   (h/html)
+                   (bw/beautify-html))
+              file-list)
+         ;; Add pages to html template and save
+         (render-html notebook-name)
+         (create-html save-file))
+
+     #_(-> (p/mdc->structure "./test-resources/test1.mdc")
          (r/render-structure notebook-name)
-         (create-html save-file)
+         
          ; (clojure.pprint/pprint)
          )     
      ))

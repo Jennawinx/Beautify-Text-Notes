@@ -1,0 +1,2453 @@
+<!DOCTYPE html>
+<!-- https://github.com/yogthos/Selmer#str -->
+<html>
+<head>
+<meta charset="utf-8">
+<title>Testing All Formats</title>
+<style>
+
+body {
+    font-family: Courier New, Courier, monospace;
+    font-size: 1em;
+    line-height: 1.4em;
+    margin: 0;
+    padding: 0;
+}
+
+pre {
+    font-size: larger;
+}
+
+.blank {
+    margin: 1em 0;
+}
+
+.container {
+    background: gainsboro;
+    min-height: 100vh;
+}
+
+.main {
+    background: inherit;
+    margin: auto;
+    min-width: 200px;
+    max-width: 150ch;
+    padding: 1em;
+}
+
+.notebook-header {
+    background: #857290;
+    border-radius: 0.5em;
+    box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12);
+    padding: 0.5em 1em;
+}
+
+.notebook-timestamp {
+    position: absolute;
+    color: #efeae5;
+}
+
+.notebook-title {
+    color: white;
+    font-weight: bold;
+    font-size: 1.75em;
+    text-align: center;
+    padding-top: 1.2em;
+    padding-bottom: 0.8em;
+}
+
+.page {
+    background-color: #efeae5;
+    /*border: 3px solid silver;*/
+    border-radius: 0.5em;
+    box-shadow:  0px 3px 3px -2px rgba(0,0,0,0.2), 0px 3px 4px 0px rgba(0,0,0,0.14), 0px 1px 4px 0px rgba(0,0,0,0.05);
+    padding: 1em 1.5em;
+    margin-top: 0.1em;
+}
+
+.page-title {
+    color: gray;
+    position: relative;
+    text-align: right;
+    top: 0.5em;
+}
+
+.heading-title {
+    border-bottom: 4px solid silver;
+    font-size: 1.5em;
+    margin-bottom: 0.25em;
+    padding: 0.25em 0;
+    text-align: center;
+}
+
+.subheading-title {
+    border-bottom: 4px dashed lightgray;
+    font-size: 1.25em;
+    font-weight: bold;
+    margin-bottom: 0.25em;
+    padding: 0.25em 0;
+}
+
+hr {
+    background: silver;
+    border: none;
+    height: 4px;
+}
+
+.nested-group {
+    margin-left: 2ch;
+}
+
+.list-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.list-item {
+    display: flex;
+    flex-grow: 1;
+}
+
+.bullet {
+    color: lightcoral;
+    display: inline-block;
+    font-weight: bold;
+    margin-right: 1ch; 
+    min-width: 3ch;
+    text-align: right;
+}
+
+.list-text {
+    display: inline-block;
+    margin-right: 1ch;
+}
+
+.list-row + .nested-group {
+    margin-left: 5ch; 
+}
+
+.inline-comment {
+    color: mediumseagreen;
+    font-weight: normal;
+    width: 100%;
+}
+
+.text-line + .inline-comment, .list-item + .inline-comment {
+    max-width: 40ch;
+}
+
+.list-item + .inline-comment {
+    margin-left: 4ch;
+}
+
+.line {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.text-line {
+    flex-grow: 1;
+}
+
+.line .leaf-text {
+    color: black;
+}
+
+.line.level-1 {
+    color: darkmagenta;
+    font-weight: bold;
+}
+
+.line.level-2 {
+    color: darkcyan;
+    font-weight: bold;
+}
+
+.line.level-3 {
+    color: mediumvioletred;
+    font-weight: bold;
+}
+
+.line.level-4 {
+    color: chocolate;
+    font-weight: bold;
+}
+</style>
+<!-- <link rel="stylesheet" type="text/css" href="../resources/content.css"> -->
+</head>
+<body>
+<div class="container">
+<div class="main">
+    <div class="notebook-header">
+        <div class=notebook-timestamp>Mon Feb 17 01:10:24 EST 2020</div>    
+        <div class=notebook-title>Testing All Formats</div>
+    </div>
+    
+        <section class="page">
+    <div class="page-title">test1.mdc</div>
+    <div>
+        <div class="blank"></div>
+        <section>
+            <div class="heading-title leaf-text"> React </div>
+        </section>
+        <div class="line-group">
+            <div class="line leaf-text">
+                <div class="inline-comment">// hi</div>
+            </div>
+        </div>
+        <section>
+            <div class="subheading-title leaf-text"> React Overview </div>
+            <div class="nested-group">
+                <div class="blank"></div>
+            </div>
+        </section>
+        <div class="line-group">
+            <div class="line level-1">
+                <div class="text-line">Virtual DOM</div>
+                <div class="inline-comment">
+                    <- 0</div> </div> <div class="nested-group">
+                        <div class="blank"></div>
+                        <div class="list-group">
+                            <div class="list-row leaf-text">
+                                <div class="list-item">
+                                    <div class="bullet">*</div>
+                                    <div class="list-text">Reads</div>
+                                </div>
+                                <div class="inline-comment"></div>
+                            </div>
+                        </div>
+                        <div class="list-group">
+                            <div class="list-row leaf-text">
+                                <div class="list-item">
+                                    <div class="bullet">*</div>
+                                    <div class="list-text">Here is a super mega long one just to see what happens ................. la la la</div>
+                                </div>
+                                <div class="inline-comment">// how will this comment do ??? hmmm i wonder .... is this long enough?</div>
+                            </div>
+                        </div>
+                        <div class="list-group">
+                            <div class="list-row level-2">
+                                <div class="list-item">
+                                    <div class="bullet">*</div>
+                                    <div class="list-text">What if I do this</div>
+                                </div>
+                                <div class="inline-comment"></div>
+                            </div>
+                            <div class="nested-group">
+                                <div class="line-group">
+                                    <div class="line leaf-text">
+                                        <div class="inline-comment">// lovely</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="list-group">
+                            <div class="list-row leaf-text">
+                                <div class="list-item">
+                                    <div class="bullet">*</div>
+                                    <div class="list-text">Writes only if needed</div>
+                                </div>
+                                <div class="inline-comment">// this is a must</div>
+                            </div>
+                            <div class="nested-group">
+                                <div class="blank"></div>
+                                <div class="blank"></div>
+                            </div>
+                        </div>
+                        <div class="line-group">
+                            <div class="line level-2">
+                                <div class="text-line">JSX</div>
+                                <div class="inline-comment">
+                                    <- 1</div> </div> <div class="nested-group">
+                                        <div class="blank"></div>
+                                        <pre class="invalid-line">                sefi er **I'm invalid** s--c cs</pre>
+                                        <hr class="leaf-text">
+                                        <div class="nested-group">
+                                            <div class="blank"></div>
+                                        </div>
+                                        </hr>
+                                        <div class="list-group">
+                                            <div class="list-row leaf-text">
+                                                <div class="list-item">
+                                                    <div class="bullet">-</div>
+                                                    <div class="list-text">Compiles into JavaScript</div>
+                                                </div>
+                                                <div class="inline-comment"></div>
+                                            </div>
+                                            <div class="nested-group">
+                                                <div class="blank"></div>
+                                            </div>
+                                        </div>
+                                        <section>
+                                            <div class="subheading-title level-3"> Happy </div>
+                                            <div class="nested-group">
+                                                <div class="list-group">
+                                                    <div class="list-row leaf-text">
+                                                        <div class="list-item">
+                                                            <div class="bullet">-</div>
+                                                            <div class="list-text">Extends JavaScript* Creates React elements</div>
+                                                        </div>
+                                                        <div class="inline-comment"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </section>
+                                        <div class="line-group">
+                                            <div class="line level-3">
+                                                <div class="text-line">Has</div>
+                                                <div class="inline-comment">
+                                                    <- 2</div> </div> <div class="nested-group">
+                                                        <div class="list-group">
+                                                            <div class="list-row level-4">
+                                                                <div class="list-item">
+                                                                    <div class="bullet">-</div>
+                                                                    <div class="list-text">name</div>
+                                                                </div>
+                                                                <div class="inline-comment">
+                                                                    <- 3</div> </div> <div class="nested-group">
+                                                                        <div class="list-group">
+                                                                            <div class="list-row level-5">
+                                                                                <div class="list-item">
+                                                                                    <div class="bullet">-</div>
+                                                                                    <div class="list-text">child tags</div>
+                                                                                </div>
+                                                                                <div class="inline-comment">
+                                                                                    <- 4</div> </div> <div class="nested-group">
+                                                                                        <div class="line-group">
+                                                                                            <div class="line leaf-text">
+                                                                                                <div class="text-line">realated stuff</div>
+                                                                                                <div class="inline-comment"></div>
+                                                                                            </div>
+                                                                                            <div class="nested-group">
+                                                                                                <div class="blank"></div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="line-group">
+                                                                                            <div class="line leaf-text">
+                                                                                                <div class="text-line">like these</div>
+                                                                                                <div class="inline-comment">
+                                                                                                    <- 5</div> </div> <div class="nested-group">
+                                                                                                        <div class="blank"></div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                </div>
+</section>
+    
+        <section class="page">
+    <div class="page-title">react.mdc</div>
+    <div>
+        <div class="blank"></div>
+        <section>
+            <div class="subheading-title leaf-text"> React Overview </div>
+            <div class="nested-group">
+                <div class="blank"></div>
+            </div>
+        </section>
+        <div class="line-group">
+            <div class="line level-1">
+                <div class="text-line">Virtual DOM</div>
+                <div class="inline-comment"></div>
+            </div>
+            <div class="nested-group">
+                <div class="list-group">
+                    <div class="list-row leaf-text">
+                        <div class="list-item">
+                            <div class="bullet">*</div>
+                            <div class="list-text">Reads</div>
+                        </div>
+                        <div class="inline-comment"></div>
+                    </div>
+                </div>
+                <div class="list-group">
+                    <div class="list-row leaf-text">
+                        <div class="list-item">
+                            <div class="bullet">*</div>
+                            <div class="list-text">Writes only if needed</div>
+                        </div>
+                        <div class="inline-comment"></div>
+                    </div>
+                    <div class="nested-group">
+                        <div class="blank"></div>
+                    </div>
+                </div>
+                <div class="line-group">
+                    <div class="line level-2">
+                        <div class="text-line">JSX</div>
+                        <div class="inline-comment"></div>
+                    </div>
+                    <div class="nested-group">
+                        <div class="list-group">
+                            <div class="list-row leaf-text">
+                                <div class="list-item">
+                                    <div class="bullet">-</div>
+                                    <div class="list-text">Compiles into JavaScript</div>
+                                </div>
+                                <div class="inline-comment"></div>
+                            </div>
+                        </div>
+                        <div class="list-group">
+                            <div class="list-row leaf-text">
+                                <div class="list-item">
+                                    <div class="bullet">-</div>
+                                    <div class="list-text">Extends JavaScript* Creates React elements</div>
+                                </div>
+                                <div class="inline-comment"></div>
+                            </div>
+                        </div>
+                        <div class="line-group">
+                            <div class="line level-3">
+                                <div class="text-line">Has</div>
+                                <div class="inline-comment"></div>
+                            </div>
+                            <div class="nested-group">
+                                <div class="list-group">
+                                    <div class="list-row leaf-text">
+                                        <div class="list-item">
+                                            <div class="bullet">-</div>
+                                            <div class="list-text">name</div>
+                                        </div>
+                                        <div class="inline-comment"></div>
+                                    </div>
+                                </div>
+                                <div class="list-group">
+                                    <div class="list-row leaf-text">
+                                        <div class="list-item">
+                                            <div class="bullet">-</div>
+                                            <div class="list-text">attributes</div>
+                                        </div>
+                                        <div class="inline-comment"></div>
+                                    </div>
+                                </div>
+                                <div class="list-group">
+                                    <div class="list-row leaf-text">
+                                        <div class="list-item">
+                                            <div class="bullet">-</div>
+                                            <div class="list-text">child tags</div>
+                                        </div>
+                                        <div class="inline-comment"></div>
+                                    </div>
+                                    <div class="nested-group">
+                                        <div class="blank"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="line-group">
+                    <div class="line level-2">
+                        <div class="text-line">Isomorphic rendering</div>
+                        <div class="inline-comment"></div>
+                    </div>
+                    <div class="nested-group">
+                        <div class="list-group">
+                            <div class="list-row leaf-text">
+                                <div class="list-item">
+                                    <div class="bullet">-</div>
+                                    <div class="list-text">renders components on client and server</div>
+                                </div>
+                                <div class="inline-comment"></div>
+                            </div>
+                            <div class="nested-group">
+                                <div class="blank"></div>
+                            </div>
+                        </div>
+                        <div class="line-group">
+                            <div class="line level-3">
+                                <div class="text-line">Notes:</div>
+                                <div class="inline-comment"></div>
+                            </div>
+                            <div class="nested-group">
+                                <div class="line-group">
+                                    <div class="line level-4">
+                                        <div class="text-line">JavaScript-driven MVCs</div>
+                                        <div class="inline-comment"></div>
+                                    </div>
+                                    <div class="nested-group">
+                                        <div class="list-group">
+                                            <div class="list-row level-5">
+                                                <div class="list-item">
+                                                    <div class="bullet">-</div>
+                                                    <div class="list-text">ie Angular, Backbone, Ember, they all render on DOM load and</div>
+                                                </div>
+                                                <div class="inline-comment"></div>
+                                            </div>
+                                            <div class="nested-group">
+                                                <pre class="invalid-line">                  this can be bery lag</pre>
+                                            </div>
+                                        </div>
+                                        <div class="list-group">
+                                            <div class="list-row level-5">
+                                                <div class="list-item">
+                                                    <div class="bullet">-</div>
+                                                    <div class="list-text">Aren't indexable by search engines unless you are willing to pay</div>
+                                                </div>
+                                                <div class="inline-comment"></div>
+                                            </div>
+                                            <div class="nested-group">
+                                                <pre class="invalid-line">                  for a third party service</pre>
+                                            </div>
+                                        </div>
+                                        <div class="list-group">
+                                            <div class="list-row level-5">
+                                                <div class="list-item">
+                                                    <div class="bullet">-</div>
+                                                    <div class="list-text">These issues can be solved by rendering JavaScript on the server side</div>
+                                                </div>
+                                                <div class="inline-comment"></div>
+                                            </div>
+                                            <div class="nested-group">
+                                                <pre class="invalid-line">                  (aka. isomorphic rendering)</pre>
+                                                <div class="blank"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="line-group">
+                    <div class="line level-2">
+                        <div class="text-line">Unidirectional data flow</div>
+                        <div class="inline-comment"></div>
+                    </div>
+                    <div class="nested-group">
+                        <div class="line-group">
+                            <div class="line leaf-text">
+                                <div class="text-line">in two-way data binding, the view gets updated when the state changes and</div>
+                                <div class="inline-comment"></div>
+                            </div>
+                        </div>
+                        <div class="line-group">
+                            <div class="line leaf-text">
+                                <div class="text-line">the state changes when the view changes</div>
+                                <div class="inline-comment"></div>
+                            </div>
+                            <div class="nested-group">
+                                <div class="blank"></div>
+                            </div>
+                        </div>
+                        <div class="line-group">
+                            <div class="line level-3">
+                                <div class="text-line">Angular JS</div>
+                                <div class="inline-comment"></div>
+                            </div>
+                            <div class="nested-group">
+                                <div class="line-group">
+                                    <div class="line leaf-text">
+                                        <div class="text-line">ie. when you change a model in Angular JS, the view automatically reflects those changes</div>
+                                        <div class="inline-comment"></div>
+                                    </div>
+                                </div>
+                                <div class="line-group">
+                                    <div class="line leaf-text">
+                                        <div class="text-line">In addition, an input field in the view can cause the model to be mutated</div>
+                                        <div class="inline-comment"></div>
+                                    </div>
+                                    <div class="nested-group">
+                                        <div class="blank"></div>
+                                    </div>
+                                </div>
+                                <div class="line-group">
+                                    <div class="line leaf-text">
+                                        <div class="text-line">Now in a well designed app, admittedly, this does work.</div>
+                                        <div class="inline-comment"></div>
+                                    </div>
+                                </div>
+                                <div class="line-group">
+                                    <div class="line leaf-text">
+                                        <div class="text-line">But it can cause cascading updates and changing a model could fire off even more event updates</div>
+                                        <div class="inline-comment"></div>
+                                    </div>
+                                    <div class="nested-group">
+                                        <div class="blank"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="line-group">
+                            <div class="line level-3">
+                                <div class="text-line">Flux</div>
+                                <div class="inline-comment"></div>
+                            </div>
+                            <div class="nested-group">
+                                <div class="line-group">
+                                    <div class="line leaf-text">
+                                        <div class="text-line">Flux takes a functional approach with unidirectional data flow</div>
+                                        <div class="inline-comment"></div>
+                                    </div>
+                                </div>
+                                <div class="line-group">
+                                    <div class="line leaf-text">
+                                        <div class="text-line">The view is a function of the application state,</div>
+                                        <div class="inline-comment"></div>
+                                    </div>
+                                </div>
+                                <div class="line-group">
+                                    <div class="line leaf-text">
+                                        <div class="text-line">So when the application state changes the view automatically re-renders itself.</div>
+                                        <div class="inline-comment"></div>
+                                    </div>
+                                    <div class="nested-group">
+                                        <div class="blank"></div>
+                                    </div>
+                                </div>
+                                <div class="line-group">
+                                    <div class="line leaf-text">
+                                        <div class="text-line">To put in another way, the same state resultes in the same view</div>
+                                        <div class="inline-comment"></div>
+                                    </div>
+                                </div>
+                                <div class="line-group">
+                                    <div class="line leaf-text">
+                                        <div class="text-line">and this leads to better predictability</div>
+                                        <div class="inline-comment"></div>
+                                    </div>
+                                    <div class="nested-group">
+                                        <div class="blank"></div>
+                                    </div>
+                                </div>
+                                <div class="line-group">
+                                    <div class="line leaf-text">
+                                        <div class="text-line">Mutation of data is done via actions.</div>
+                                        <div class="inline-comment"></div>
+                                    </div>
+                                    <div class="nested-group">
+                                        <div class="blank"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="line-group">
+                            <div class="line level-3">
+                                <div class="text-line">React and Flux</div>
+                                <div class="inline-comment"></div>
+                            </div>
+                            <div class="nested-group">
+                                <div class="line-group">
+                                    <div class="line leaf-text">
+                                        <div class="text-line">Now if you're going to use React and Flux you have to start thinking about rethinking best practice.</div>
+                                        <div class="inline-comment"></div>
+                                    </div>
+                                    <div class="nested-group">
+                                        <div class="blank"></div>
+                                    </div>
+                                </div>
+                                <div class="line-group">
+                                    <div class="line leaf-text">
+                                        <div class="text-line">So for example, we're going to be seeing JavaScript and markup in the same file.</div>
+                                        <div class="inline-comment"></div>
+                                    </div>
+                                </div>
+                                <div class="line-group">
+                                    <div class="line leaf-text">
+                                        <div class="text-line">Sometimes it just makes sense to avoid the separation and there are benefits.</div>
+                                        <div class="inline-comment"></div>
+                                    </div>
+                                    <div class="nested-group">
+                                        <div class="blank"></div>
+                                    </div>
+                                </div>
+                                <div class="line-group">
+                                    <div class="line leaf-text">
+                                        <div class="text-line">With React, HTML is a projection of state</div>
+                                        <div class="inline-comment"></div>
+                                    </div>
+                                    <div class="nested-group">
+                                        <div class="blank"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="line-group">
+            <div class="line level-1">
+                <div class="text-line">React</div>
+                <div class="inline-comment"></div>
+            </div>
+            <div class="nested-group">
+                <div class="list-group">
+                    <div class="list-row level-2">
+                        <div class="list-item">
+                            <div class="bullet">-</div>
+                            <div class="list-text">Is a view layer</div>
+                        </div>
+                        <div class="inline-comment"></div>
+                    </div>
+                    <div class="nested-group">
+                        <div class="list-group">
+                            <div class="list-row leaf-text">
+                                <div class="list-item">
+                                    <div class="bullet">-</div>
+                                    <div class="list-text">It's the 'V' in MVC</div>
+                                </div>
+                                <div class="inline-comment"></div>
+                            </div>
+                        </div>
+                        <div class="list-group">
+                            <div class="list-row leaf-text">
+                                <div class="list-item">
+                                    <div class="bullet">-</div>
+                                    <div class="list-text">Well-built React components conver 'C' as well</div>
+                                </div>
+                                <div class="inline-comment"></div>
+                            </div>
+                            <div class="nested-group">
+                                <div class="blank"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="list-group">
+                    <div class="list-row level-2">
+                        <div class="list-item">
+                            <div class="bullet">-</div>
+                            <div class="list-text">Has no opinion on</div>
+                        </div>
+                        <div class="inline-comment"></div>
+                    </div>
+                    <div class="nested-group">
+                        <div class="list-group">
+                            <div class="list-row leaf-text">
+                                <div class="list-item">
+                                    <div class="bullet">-</div>
+                                    <div class="list-text">Routing</div>
+                                </div>
+                                <div class="inline-comment"></div>
+                            </div>
+                        </div>
+                        <div class="list-group">
+                            <div class="list-row leaf-text">
+                                <div class="list-item">
+                                    <div class="bullet">-</div>
+                                    <div class="list-text">Data Flow</div>
+                                </div>
+                                <div class="inline-comment"></div>
+                            </div>
+                        </div>
+                        <div class="list-group">
+                            <div class="list-row leaf-text">
+                                <div class="list-item">
+                                    <div class="bullet">-</div>
+                                    <div class="list-text">Buid & Deployment</div>
+                                </div>
+                                <div class="inline-comment"></div>
+                            </div>
+                            <div class="nested-group">
+                                <div class="blank"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="line-group">
+            <div class="line level-1">
+                <div class="text-line">Possible Stacks</div>
+                <div class="inline-comment"></div>
+            </div>
+            <div class="nested-group">
+                <div class="line-group">
+                    <div class="line level-2">
+                        <div class="text-line">1.</div>
+                        <div class="inline-comment"></div>
+                    </div>
+                    <div class="nested-group">
+                        <pre class="invalid-line">        Node.js            server-side JavaScript</pre>
+                        <pre class="invalid-line">        Browserify         to expose Node packages to the browser</pre>
+                        <div class="line-group">
+                            <div class="line leaf-text">
+                                <div class="text-line">React Components for our components</div>
+                                <div class="inline-comment"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="line-group">
+                    <div class="line level-2">
+                        <div class="text-line">2.</div>
+                        <div class="inline-comment"></div>
+                    </div>
+                    <div class="nested-group">
+                        <pre class="invalid-line">        React Router       for routing through pages</pre>
+                        <pre class="invalid-line">        Facebook's Flux    for data flow</pre>
+                        <pre class="invalid-line">        Glup               task runner to put everything together for deployment</pre>
+                        <div class="blank"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section>
+            <div class="subheading-title leaf-text"> Node JS </div>
+            <div class="nested-group">
+                <div class="blank"></div>
+            </div>
+        </section>
+        <div class="line-group">
+            <div class="line leaf-text">
+                <div class="text-line">What is it?</div>
+                <div class="inline-comment"></div>
+            </div>
+        </div>
+        <div class="list-group">
+            <div class="list-row leaf-text">
+                <div class="list-item">
+                    <div class="bullet">*</div>
+                    <div class="list-text">Server Side JavaScript</div>
+                </div>
+                <div class="inline-comment"></div>
+            </div>
+        </div>
+        <div class="list-group">
+            <div class="list-row leaf-text">
+                <div class="list-item">
+                    <div class="bullet">*</div>
+                    <div class="list-text">Non-blocking I/O</div>
+                </div>
+                <div class="inline-comment"></div>
+            </div>
+        </div>
+        <div class="list-group">
+            <div class="list-row level-1">
+                <div class="list-item">
+                    <div class="bullet">*</div>
+                    <div class="list-text">Uses Google V8 high performance engine</div>
+                </div>
+                <div class="inline-comment"></div>
+            </div>
+            <div class="nested-group">
+                <div class="line-group">
+                    <div class="line leaf-text">
+                        <div class="text-line">means that it is very light weight and efficient</div>
+                        <div class="inline-comment"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="list-group">
+            <div class="list-row level-1">
+                <div class="list-item">
+                    <div class="bullet">*</div>
+                    <div class="list-text">Provides package manager npm</div>
+                </div>
+                <div class="inline-comment"></div>
+            </div>
+            <div class="nested-group">
+                <div class="list-group">
+                    <div class="list-row leaf-text">
+                        <div class="list-item">
+                            <div class="bullet">*</div>
+                            <div class="list-text">thousands of packages avaliable</div>
+                        </div>
+                        <div class="inline-comment"></div>
+                    </div>
+                </div>
+                <div class="list-group">
+                    <div class="list-row leaf-text">
+                        <div class="list-item">
+                            <div class="bullet">*</div>
+                            <div class="list-text">Easy maintenance and installation</div>
+                        </div>
+                        <div class="inline-comment"></div>
+                    </div>
+                    <div class="nested-group">
+                        <div class="blank"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="line-group">
+            <div class="line leaf-text">
+                <div class="text-line">FYI</div>
+                <div class="inline-comment"></div>
+            </div>
+        </div>
+        <div class="list-group">
+            <div class="list-row leaf-text">
+                <div class="list-item">
+                    <div class="bullet">*</div>
+                    <div class="list-text">Node.j Foundation maintains the largest open source library in the world</div>
+                </div>
+                <div class="inline-comment"></div>
+            </div>
+            <div class="nested-group">
+                <div class="blank"></div>
+            </div>
+        </div>
+        <div class="line-group">
+            <div class="line leaf-text">
+                <div class="text-line">NPM</div>
+                <div class="inline-comment"></div>
+            </div>
+        </div>
+        <div class="list-group">
+            <div class="list-row level-1">
+                <div class="list-item">
+                    <div class="bullet">*</div>
+                    <div class="list-text">Install and manage dependencies for an app</div>
+                </div>
+                <div class="inline-comment"></div>
+            </div>
+            <div class="nested-group">
+                <div class="list-group">
+                    <div class="list-row leaf-text">
+                        <div class="list-item">
+                            <div class="bullet">-</div>
+                            <div class="list-text">Like NuGet for .Net</div>
+                        </div>
+                        <div class="inline-comment"></div>
+                    </div>
+                </div>
+                <div class="list-group">
+                    <div class="list-row leaf-text">
+                        <div class="list-item">
+                            <div class="bullet">-</div>
+                            <div class="list-text">PIP for Python</div>
+                        </div>
+                        <div class="inline-comment"></div>
+                    </div>
+                    <div class="nested-group">
+                        <div class="blank"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="list-group">
+            <div class="list-row leaf-text">
+                <div class="list-item">
+                    <div class="bullet">*</div>
+                    <div class="list-text">Quick and easy to use</div>
+                </div>
+                <div class="inline-comment"></div>
+            </div>
+        </div>
+        <div class="list-group">
+            <div class="list-row leaf-text">
+                <div class="list-item">
+                    <div class="bullet">*</div>
+                    <div class="list-text">Use NPM to obtain and maintain all out JS libraries</div>
+                </div>
+                <div class="inline-comment"></div>
+            </div>
+            <div class="nested-group">
+                <div class="blank"></div>
+            </div>
+        </div>
+        <div class="line-group">
+            <div class="line level-1">
+                <div class="text-line">CommonJS Pattern</div>
+                <div class="inline-comment"></div>
+            </div>
+            <div class="nested-group">
+                <div class="list-group">
+                    <div class="list-row leaf-text">
+                        <div class="list-item">
+                            <div class="bullet">-</div>
+                            <div class="list-text">Node.js uses CommonJS for specifying modules</div>
+                        </div>
+                        <div class="inline-comment"></div>
+                    </div>
+                </div>
+                <div class="list-group">
+                    <div class="list-row leaf-text">
+                        <div class="list-item">
+                            <div class="bullet">-</div>
+                            <div class="list-text">This mean creating a usable module form other modules like syncrinous modules like ATM</div>
+                        </div>
+                        <div class="inline-comment"></div>
+                    </div>
+                </div>
+                <div class="list-group">
+                    <div class="list-row leaf-text">
+                        <div class="list-item">
+                            <div class="bullet">-</div>
+                            <div class="list-text">first we specify any modules to use by using require statement</div>
+                        </div>
+                        <div class="inline-comment"></div>
+                    </div>
+                    <div class="nested-group">
+                        <div class="blank"></div>
+                    </div>
+                </div>
+                <div class="line-group">
+                    <div class="line leaf-text">
+                        <div class="text-line">Specifying modules</div>
+                        <div class="inline-comment"></div>
+                    </div>
+                </div>
+                <div class="line-group">
+                    <div class="line level-2">
+                        <div class="text-line">3 Parts:</div>
+                        <div class="inline-comment"></div>
+                    </div>
+                    <div class="nested-group">
+                        <div class="list-group">
+                            <div class="list-row leaf-text">
+                                <div class="list-item">
+                                    <div class="bullet">1.</div>
+                                    <div class="list-text">Require statement</div>
+                                </div>
+                                <div class="inline-comment"></div>
+                            </div>
+                        </div>
+                        <div class="list-group">
+                            <div class="list-row leaf-text">
+                                <div class="list-item">
+                                    <div class="bullet">2.</div>
+                                    <div class="list-text">Module declaration</div>
+                                </div>
+                                <div class="inline-comment"></div>
+                            </div>
+                        </div>
+                        <div class="list-group">
+                            <div class="list-row level-3">
+                                <div class="list-item">
+                                    <div class="bullet">3.</div>
+                                    <div class="list-text">Export module</div>
+                                </div>
+                                <div class="inline-comment"></div>
+                            </div>
+                            <div class="nested-group">
+                                <div class="line-group">
+                                    <div class="line leaf-text">
+                                        <div class="text-line">To expose out modules to other modules so they can reference the new module that we have created</div>
+                                        <div class="inline-comment"></div>
+                                    </div>
+                                    <div class="nested-group">
+                                        <div class="blank"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section>
+            <div class="subheading-title leaf-text"> Broswerify </div>
+            <div class="nested-group">
+                <div class="blank"></div>
+            </div>
+        </section>
+        <div class="line-group">
+            <div class="line level-1">
+                <div class="text-line">Bundles up Node.js NPM modules</div>
+                <div class="inline-comment"></div>
+            </div>
+            <div class="nested-group">
+                <div class="list-group">
+                    <div class="list-row leaf-text">
+                        <div class="list-item">
+                            <div class="bullet">-</div>
+                            <div class="list-text">So we can use them in the browser</div>
+                        </div>
+                        <div class="inline-comment"></div>
+                    </div>
+                </div>
+                <div class="list-group">
+                    <div class="list-row leaf-text">
+                        <div class="list-item">
+                            <div class="bullet">-</div>
+                            <div class="list-text">Easy managing and bundling dependencies</div>
+                        </div>
+                        <div class="inline-comment"></div>
+                    </div>
+                    <div class="nested-group">
+                        <div class="blank"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="line-group">
+            <div class="line level-1">
+                <div class="text-line">NPM has thousands of packages</div>
+                <div class="inline-comment"></div>
+            </div>
+            <div class="nested-group">
+                <div class="list-group">
+                    <div class="list-row leaf-text">
+                        <div class="list-item">
+                            <div class="bullet">-</div>
+                            <div class="list-text">bundles our npm packages up in one file</div>
+                        </div>
+                        <div class="inline-comment"></div>
+                    </div>
+                </div>
+                <div class="list-group">
+                    <div class="list-row level-2">
+                        <div class="list-item">
+                            <div class="bullet">-</div>
+                            <div class="list-text">using browserify gives you acess to all of them in the broswer</div>
+                        </div>
+                        <div class="inline-comment"></div>
+                    </div>
+                    <div class="nested-group">
+                        <div class="line-group">
+                            <div class="line leaf-text">
+                                <div class="text-line">So does it download the modules to they are on the client side???</div>
+                                <div class="inline-comment"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="list-group">
+                    <div class="list-row leaf-text">
+                        <div class="list-item">
+                            <div class="bullet">-</div>
+                            <div class="list-text">Organize our code</div>
+                        </div>
+                        <div class="inline-comment"></div>
+                    </div>
+                </div>
+                <div class="list-group">
+                    <div class="list-row leaf-text">
+                        <div class="list-item">
+                            <div class="bullet">-</div>
+                            <div class="list-text">Browser can use all our packages</div>
+                        </div>
+                        <div class="inline-comment"></div>
+                    </div>
+                </div>
+                <div class="list-group">
+                    <div class="list-row level-2">
+                        <div class="list-item">
+                            <div class="bullet">-</div>
+                            <div class="list-text">Uses same module system as Node.js</div>
+                        </div>
+                        <div class="inline-comment"></div>
+                    </div>
+                    <div class="nested-group">
+                        <div class="line-group">
+                            <div class="line leaf-text">
+                                <div class="text-line">So packages published to NPM that may have originally written for deployment in node,</div>
+                                <div class="inline-comment"></div>
+                            </div>
+                        </div>
+                        <div class="line-group">
+                            <div class="line leaf-text">
+                                <div class="text-line">not for the browser, will work in the browser by using browserify</div>
+                                <div class="inline-comment"></div>
+                            </div>
+                            <div class="nested-group">
+                                <div class="blank"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="line-group">
+            <div class="line leaf-text">
+                <div class="text-line">Because browserify bundles up all the dependencies into one file, it gives us a performance benefit</div>
+                <div class="inline-comment"></div>
+            </div>
+        </div>
+        <div class="line-group">
+            <div class="line leaf-text">
+                <div class="text-line">because it reduces the HTTP requests to get out JavaScript modules, it’s going to lead to a faster loading application</div>
+                <div class="inline-comment"></div>
+            </div>
+        </div>
+    </div>
+</section>
+    
+        <section class="page">
+    <div class="page-title">react2.mdc</div>
+    <div>
+        <pre class="invalid-line"> ------------------ React Notes ----------------</pre>
+        <div class="blank"></div>
+        <div class="line-group">
+            <div class="line level-1">
+                <div class="text-line">React</div>
+                <div class="inline-comment"></div>
+            </div>
+            <div class="nested-group">
+                <div class="list-group">
+                    <div class="list-row leaf-text">
+                        <div class="list-item">
+                            <div class="bullet">-</div>
+                            <div class="list-text">Utilizes virtual DOM for unparalleled performance</div>
+                        </div>
+                        <div class="inline-comment"></div>
+                    </div>
+                </div>
+                <div class="list-group">
+                    <div class="list-row leaf-text">
+                        <div class="list-item">
+                            <div class="bullet">-</div>
+                            <div class="list-text">DOM in HTML/XML</div>
+                        </div>
+                        <div class="inline-comment"></div>
+                    </div>
+                </div>
+                <div class="list-group">
+                    <div class="list-row leaf-text">
+                        <div class="list-item">
+                            <div class="bullet">-</div>
+                            <div class="list-text">Virtual DOM as JS object (faster)</div>
+                        </div>
+                        <div class="inline-comment"></div>
+                    </div>
+                    <div class="nested-group">
+                        <div class="blank"></div>
+                    </div>
+                </div>
+                <div class="line-group">
+                    <div class="line leaf-text">
+                        <div class="text-line">When DOM updates, compares the old state and new state of DOM and updates in the least expensive way</div>
+                        <div class="inline-comment"></div>
+                    </div>
+                    <div class="nested-group">
+                        <div class="blank"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="line-group">
+            <div class="line level-1">
+                <div class="text-line">Isomorphic rendering</div>
+                <div class="inline-comment"></div>
+            </div>
+            <div class="nested-group">
+                <div class="line-group">
+                    <div class="line leaf-text">
+                        <div class="text-line">can render on the client or server side</div>
+                        <div class="inline-comment"></div>
+                    </div>
+                </div>
+                <div class="line-group">
+                    <div class="line leaf-text">
+                        <div class="text-line">enabled by the virutal DOM</div>
+                        <div class="inline-comment"></div>
+                    </div>
+                    <div class="nested-group">
+                        <div class="blank"></div>
+                    </div>
+                </div>
+                <div class="list-group">
+                    <div class="list-row leaf-text">
+                        <div class="list-item">
+                            <div class="bullet">-</div>
+                            <div class="list-text">react doesn't read from the real DOM</div>
+                        </div>
+                        <div class="inline-comment"></div>
+                    </div>
+                </div>
+                <div class="list-group">
+                    <div class="list-row leaf-text">
+                        <div class="list-item">
+                            <div class="bullet">-</div>
+                            <div class="list-text">it only writes to the real DOM if necessary</div>
+                        </div>
+                        <div class="inline-comment"></div>
+                    </div>
+                    <div class="nested-group">
+                        <div class="blank"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="line-group">
+            <div class="line level-1">
+                <div class="text-line">Flux</div>
+                <div class="inline-comment"></div>
+            </div>
+            <div class="nested-group">
+                <div class="line-group">
+                    <div class="line level-2">
+                        <div class="text-line">Avoids traditional MVC pattern</div>
+                        <div class="inline-comment"></div>
+                    </div>
+                    <div class="nested-group">
+                        <div class="list-group">
+                            <div class="list-row leaf-text">
+                                <div class="list-item">
+                                    <div class="bullet">-</div>
+                                    <div class="list-text">problems occur when you have complex interactions with models and views</div>
+                                </div>
+                                <div class="inline-comment"></div>
+                            </div>
+                            <div class="nested-group">
+                                <div class="blank"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="line-group">
+                    <div class="line level-2">
+                        <div class="text-line">Uses one way data flow</div>
+                        <div class="inline-comment"></div>
+                    </div>
+                    <div class="nested-group">
+                        <div class="list-group">
+                            <div class="list-row leaf-text">
+                                <div class="list-item">
+                                    <div class="bullet">-</div>
+                                    <div class="list-text">makes app logic easier to reason about </div>
+                                </div>
+                                <div class="inline-comment"></div>
+                            </div>
+                        </div>
+                        <div class="list-group">
+                            <div class="list-row leaf-text">
+                                <div class="list-item">
+                                    <div class="bullet">-</div>
+                                    <div class="list-text">avoids the complexities inherent in MVC</div>
+                                </div>
+                                <div class="inline-comment"></div>
+                            </div>
+                        </div>
+                        <div class="list-group">
+                            <div class="list-row leaf-text">
+                                <div class="list-item">
+                                    <div class="bullet">-</div>
+                                    <div class="list-text">avoids interactions between multiple views and models</div>
+                                </div>
+                                <div class="inline-comment"></div>
+                            </div>
+                        </div>
+                        <div class="list-group">
+                            <div class="list-row leaf-text">
+                                <div class="list-item">
+                                    <div class="bullet">-</div>
+                                    <div class="list-text">view is a function of the spplication state</div>
+                                </div>
+                                <div class="inline-comment"></div>
+                            </div>
+                        </div>
+                        <div class="list-group">
+                            <div class="list-row leaf-text">
+                                <div class="list-item">
+                                    <div class="bullet">-</div>
+                                    <div class="list-text">better predictability</div>
+                                </div>
+                                <div class="inline-comment"></div>
+                            </div>
+                            <div class="nested-group">
+                                <div class="blank"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="line-group">
+                    <div class="line leaf-text">
+                        <div class="text-line">Flux Data Flow</div>
+                        <div class="inline-comment"></div>
+                    </div>
+                    <div class="nested-group">
+                        <div class="blank"></div>
+                    </div>
+                </div>
+                <div class="line-group">
+                    <div class="line leaf-text">
+                        <div class="text-line">.. --> [ Action ] -> [ Dispatcher ] -> [ store ] -> [ react view ] -----> [ Action ] -> ..</div>
+                        <div class="inline-comment"></div>
+                    </div>
+                    <div class="nested-group">
+                        <div class="blank"></div>
+                    </div>
+                </div>
+                <div class="line-group">
+                    <div class="line leaf-text">
+                        <div class="text-line">^Isn't that the MVC????</div>
+                        <div class="inline-comment"></div>
+                    </div>
+                    <div class="nested-group">
+                        <div class="blank"></div>
+                    </div>
+                </div>
+                <div class="line-group">
+                    <div class="line level-2">
+                        <div class="text-line">Actions</div>
+                        <div class="inline-comment"></div>
+                    </div>
+                    <div class="nested-group">
+                        <div class="list-group">
+                            <div class="list-row leaf-text">
+                                <div class="list-item">
+                                    <div class="bullet">-</div>
+                                    <div class="list-text">methods that enables the passing of data to dispatchers</div>
+                                </div>
+                                <div class="inline-comment"></div>
+                            </div>
+                        </div>
+                        <div class="list-group">
+                            <div class="list-row leaf-text">
+                                <div class="list-item">
+                                    <div class="bullet">-</div>
+                                    <div class="list-text">action creator creates actions </div>
+                                </div>
+                                <div class="inline-comment"></div>
+                            </div>
+                        </div>
+                        <div class="list-group">
+                            <div class="list-row leaf-text">
+                                <div class="list-item">
+                                    <div class="bullet">-</div>
+                                    <div class="list-text">view gets updated when action is fired</div>
+                                </div>
+                                <div class="inline-comment"></div>
+                            </div>
+                            <div class="nested-group">
+                                <div class="blank"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="line-group">
+                    <div class="line level-2">
+                        <div class="text-line">Dispatcher </div>
+                        <div class="inline-comment"></div>
+                    </div>
+                    <div class="nested-group">
+                        <div class="list-group">
+                            <div class="list-row leaf-text">
+                                <div class="list-item">
+                                    <div class="bullet">-</div>
+                                    <div class="list-text">callback registary </div>
+                                </div>
+                                <div class="inline-comment"></div>
+                            </div>
+                        </div>
+                        <div class="list-group">
+                            <div class="list-row leaf-text">
+                                <div class="list-item">
+                                    <div class="bullet">-</div>
+                                    <div class="list-text">list of all the stores it will have to send actions to </div>
+                                </div>
+                                <div class="inline-comment"></div>
+                            </div>
+                        </div>
+                        <div class="list-group">
+                            <div class="list-row level-3">
+                                <div class="list-item">
+                                    <div class="bullet">-</div>
+                                    <div class="list-text">dispatchers collects actions and broadcast the actions and their data (payload) </div>
+                                </div>
+                                <div class="inline-comment"></div>
+                            </div>
+                            <div class="nested-group">
+                                <pre class="invalid-line">          to all registered callbacks</pre>
+                                <div class="blank"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="line-group">
+                    <div class="line level-2">
+                        <div class="text-line">Store</div>
+                        <div class="inline-comment"></div>
+                    </div>
+                    <div class="nested-group">
+                        <div class="list-group">
+                            <div class="list-row leaf-text">
+                                <div class="list-item">
+                                    <div class="bullet">-</div>
+                                    <div class="list-text">Containers for application state and application logic</div>
+                                </div>
+                                <div class="inline-comment"></div>
+                            </div>
+                        </div>
+                        <div class="list-group">
+                            <div class="list-row leaf-text">
+                                <div class="list-item">
+                                    <div class="bullet">-</div>
+                                    <div class="list-text">The only entry to the store is a callback that's registered to the dispatcher</div>
+                                </div>
+                                <div class="inline-comment"></div>
+                            </div>
+                        </div>
+                        <div class="list-group">
+                            <div class="list-row level-3">
+                                <div class="list-item">
+                                    <div class="bullet">-</div>
+                                    <div class="list-text">once the store makes changes to state, it emites a change event and notifies the controller </div>
+                                </div>
+                                <div class="inline-comment"></div>
+                            </div>
+                            <div class="nested-group">
+                                <pre class="invalid-line">          view that the state has changed</pre>
+                                <div class="blank"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="line-group">
+                    <div class="line level-2">
+                        <div class="text-line">React Views</div>
+                        <div class="inline-comment"></div>
+                    </div>
+                    <div class="nested-group">
+                        <div class="list-group">
+                            <div class="list-row level-3">
+                                <div class="list-item">
+                                    <div class="bullet">-</div>
+                                    <div class="list-text">react components that takes state from stores and transmit them through props to child </div>
+                                </div>
+                                <div class="inline-comment"></div>
+                            </div>
+                            <div class="nested-group">
+                                <pre class="invalid-line">          components</pre>
+                            </div>
+                        </div>
+                        <div class="list-group">
+                            <div class="list-row leaf-text">
+                                <div class="list-item">
+                                    <div class="bullet">-</div>
+                                    <div class="list-text">views takes state and renders it</div>
+                                </div>
+                                <div class="inline-comment"></div>
+                            </div>
+                        </div>
+                        <div class="list-group">
+                            <div class="list-row leaf-text">
+                                <div class="list-item">
+                                    <div class="bullet">-</div>
+                                    <div class="list-text">also accepts user input</div>
+                                </div>
+                                <div class="inline-comment"></div>
+                            </div>
+                            <div class="nested-group">
+                                <div class="blank"></div>
+                                <div class="blank"></div>
+                                <div class="blank"></div>
+                                <div class="blank"></div>
+                                <div class="blank"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    
+        <section class="page">
+    <div class="page-title">test.mdc</div>
+    <div>
+        <section>
+            <div class="heading-title leaf-text"> Heading </div>
+            <div class="nested-group">
+                <div class="blank"></div>
+            </div>
+        </section>
+        <div class="line-group">
+            <div class="line level-1">
+                <div class="text-line">Funtionality</div>
+                <div class="inline-comment"></div>
+            </div>
+            <div class="nested-group">
+                <pre class="invalid-line"> * This is a second level bullet</pre>
+                <div class="blank"></div>
+                <div class="line-group">
+                    <div class="line level-2">
+                        <div class="text-line">Level 2 Heading</div>
+                        <div class="inline-comment"></div>
+                    </div>
+                    <div class="nested-group">
+                        <div class="line-group">
+                            <div class="line leaf-text">
+                                <div class="text-line">Level 2 Body</div>
+                                <div class="inline-comment"></div>
+                            </div>
+                        </div>
+                        <div class="line-group">
+                            <div class="line level-3">
+                                <div class="text-line">Level 2 Body / Level 3 Heading</div>
+                                <div class="inline-comment"></div>
+                            </div>
+                            <div class="nested-group">
+                                <div class="line-group">
+                                    <div class="line leaf-text">
+                                        <div class="text-line">Level 3 Body</div>
+                                        <div class="inline-comment"></div>
+                                    </div>
+                                    <div class="nested-group">
+                                        <div class="blank"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="line-group">
+                            <div class="line leaf-text">
+                                <div class="text-line">Level 2 Body</div>
+                                <div class="inline-comment"></div>
+                            </div>
+                            <div class="nested-group">
+                                <div class="blank"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="list-group">
+                    <div class="list-row level-2">
+                        <div class="list-item">
+                            <div class="bullet">-</div>
+                            <div class="list-text">This is a dashed bullet</div>
+                        </div>
+                        <div class="inline-comment"></div>
+                    </div>
+                    <div class="nested-group">
+                        <div class="list-group">
+                            <div class="list-row level-3">
+                                <div class="list-item">
+                                    <div class="bullet">o</div>
+                                    <div class="list-text">This is a nested circle bullet 1</div>
+                                </div>
+                                <div class="inline-comment"></div>
+                            </div>
+                            <div class="nested-group">
+                                <div class="list-group">
+                                    <div class="list-row level-4">
+                                        <div class="list-item">
+                                            <div class="bullet">o</div>
+                                            <div class="list-text">This is a nested circle bullet 2</div>
+                                        </div>
+                                        <div class="inline-comment"></div>
+                                    </div>
+                                    <div class="nested-group">
+                                        <div class="list-group">
+                                            <div class="list-row leaf-text">
+                                                <div class="list-item">
+                                                    <div class="bullet">*</div>
+                                                    <div class="list-text">Nested bullets should not have colour</div>
+                                                </div>
+                                                <div class="inline-comment"></div>
+                                            </div>
+                                            <div class="nested-group">
+                                                <div class="blank"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="list-group">
+                    <div class="list-row level-2">
+                        <div class="list-item">
+                            <div class="bullet">-</div>
+                            <div class="list-text">This is an arrow section</div>
+                        </div>
+                        <div class="inline-comment"></div>
+                    </div>
+                    <div class="nested-group">
+                        <div class="line-group">
+                            <div class="line leaf-text">
+                                <div class="text-line">-> Arrows must precedence with space\tabs and end with a space</div>
+                                <div class="inline-comment"></div>
+                            </div>
+                        </div>
+                        <div class="line-group">
+                            <div class="line leaf-text">
+                                <div class="text-line">-> "Quotes should be fine"</div>
+                                <div class="inline-comment"></div>
+                            </div>
+                            <div class="nested-group">
+                                <div class="blank"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="line-group">
+                    <div class="line level-2">
+                        <div class="text-line">New Words</div>
+                        <div class="inline-comment"></div>
+                    </div>
+                    <div class="nested-group">
+                        <pre class="invalid-line">        *GTM    Global Trade Management System              // This should not bullet</pre>
+                        <pre class="invalid-line">        EODc    End of the Day Calculations                 <- This is hard to do</pre>
+                        <pre class="invalid-line">                wrapping of text</pre>
+                        <pre class="invalid-line">                very special and difficult </pre>
+                        <pre class="invalid-line">                do later</pre>
+                        <div class="blank"></div>
+                        <div class="line-group">
+                            <div class="line level-3">
+                                <div class="text-line">Notes:</div>
+                                <div class="inline-comment"></div>
+                            </div>
+                            <div class="nested-group">
+                                <div class="list-group">
+                                    <div class="list-row leaf-text">
+                                        <div class="list-item">
+                                            <div class="bullet">*</div>
+                                            <div class="list-text">Make sure to review everything</div>
+                                        </div>
+                                        <div class="inline-comment"></div>
+                                    </div>
+                                    <div class="nested-group">
+                                        <div class="blank"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="line-group">
+                            <div class="line leaf-text">
+                                <div class="text-line">Notes:</div>
+                                <div class="inline-comment"></div>
+                            </div>
+                        </div>
+                        <div class="list-group">
+                            <div class="list-row leaf-text">
+                                <div class="list-item">
+                                    <div class="bullet">*</div>
+                                    <div class="list-text">This is part of the new words body</div>
+                                </div>
+                                <div class="inline-comment"></div>
+                            </div>
+                            <div class="nested-group">
+                                <div class="blank"></div>
+                            </div>
+                        </div>
+                        <div class="line-group">
+                            <div class="line level-3">
+                                <div class="text-line">Beautiful Table </div>
+                                <div class="inline-comment"></div>
+                            </div>
+                            <div class="nested-group">
+                                <div class="line-group">
+                                    <div class="line level-4">
+                                        <div class="text-line">Type A</div>
+                                        <div class="inline-comment"></div>
+                                    </div>
+                                    <div class="nested-group">
+                                        <pre class="invalid-line">            Col1        Col 2                    Col "3"</pre>
+                                    </div>
+                                </div>
+                                <hr class="level-4">
+                                <div class="nested-group">
+                                    <pre class="invalid-line">            A           To Be ...                False      <- harder to do</pre>
+                                    <pre class="invalid-line">                        Or not be                           <- smart tabing</pre>
+                                    <div class="blank"></div>
+                                    <pre class="invalid-line">            A           True</pre>
+                                    <div class="blank"></div>
+                                </div>
+                                </hr>
+                                <div class="line-group">
+                                    <div class="line level-4">
+                                        <div class="text-line">Notes:</div>
+                                        <div class="inline-comment"></div>
+                                    </div>
+                                    <div class="nested-group">
+                                        <div class="line-group">
+                                            <div class="line leaf-text">
+                                                <div class="text-line">Tables must have at least 2 columns</div>
+                                                <div class="inline-comment"></div>
+                                            </div>
+                                        </div>
+                                        <div class="line-group">
+                                            <div class="line leaf-text">
+                                                <div class="text-line">All leaves do not have colouring</div>
+                                                <div class="inline-comment"></div>
+                                            </div>
+                                            <div class="nested-group">
+                                                <div class="blank"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="line-group">
+                                    <div class="line level-4">
+                                        <div class="text-line">Type B</div>
+                                        <div class="inline-comment"></div>
+                                    </div>
+                                    <div class="nested-group">
+                                        <pre class="invalid-line">                Col1       |    Col2            Col3</pre>
+                                        <hr class="level-5">
+                                        <div class="nested-group">
+                                            <pre class="invalid-line">                A               True            False</pre>
+                                            <pre class="invalid-line">                A               True            False</pre>
+                                            <div class="blank"></div>
+                                        </div>
+                                        </hr>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section>
+            <div class="subheading-title leaf-text"> Sub Heading </div>
+            <div class="nested-group">
+                <div class="blank"></div>
+            </div>
+        </section>
+        <div class="line-group">
+            <div class="line leaf-text">
+                <div class="text-line">https://www.google.ca</div>
+                <div class="inline-comment"></div>
+            </div>
+            <div class="nested-group">
+                <div class="blank"></div>
+            </div>
+        </div>
+        <div class="line-group">
+            <div class="line level-1">
+                <div class="text-line">[lala land] https://www.google.ca</div>
+                <div class="inline-comment"></div>
+            </div>
+            <div class="nested-group">
+                <div class="blank"></div>
+                <div class="line-group">
+                    <div class="line leaf-text">
+                        <div class="text-line">This is a table</div>
+                        <div class="inline-comment"></div>
+                    </div>
+                </div>
+                <div class="line-group">
+                    <div class="line leaf-text">
+                        <div class="text-line">[lala] https://www.google.ca</div>
+                        <div class="inline-comment"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="line-group">
+            <div class="line level-1">
+                <div class="text-line">/*</div>
+                <div class="inline-comment"></div>
+            </div>
+            <div class="nested-group">
+                <div class="line-group">
+                    <div class="line leaf-text">
+                        <div class="text-line">Notes for me ....</div>
+                        <div class="inline-comment"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="line-group">
+            <div class="line leaf-text">
+                <div class="text-line">*/</div>
+                <div class="inline-comment"></div>
+            </div>
+            <div class="nested-group">
+                <div class="blank"></div>
+            </div>
+        </div>
+        <div class="line-group">
+            <div class="line level-1">
+                <div class="text-line">```<Python>
+                </div>
+                <div class="inline-comment"></div>
+            </div>
+            <div class="nested-group">
+                <div class="blank"></div>
+                <div class="line-group">
+                    <div class="line leaf-text">
+                        <div class="text-line">python -m pip install django</div>
+                        <div class="inline-comment"></div>
+                    </div>
+                    <div class="nested-group">
+                        <div class="blank"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="line-group">
+            <div class="line leaf-text">
+                <div class="text-line">```</div>
+                <div class="inline-comment"></div>
+            </div>
+            <div class="nested-group">
+                <div class="blank"></div>
+            </div>
+        </div>
+        <hr class="leaf-text">
+        <div class="nested-group">
+            <div class="blank"></div>
+        </div>
+        </hr>
+    </div>
+</section>
+    
+        <section class="page">
+    <div class="page-title">test3.mdc</div>
+    <div>
+        <div class="blank"></div>
+        <section>
+            <div class="subheading-title leaf-text"> React Overview </div>
+            <div class="nested-group">
+                <div class="blank"></div>
+            </div>
+        </section>
+        <div class="line-group">
+            <div class="line level-1">
+                <div class="text-line">Virtual DOM</div>
+                <div class="inline-comment"></div>
+            </div>
+            <div class="nested-group">
+                <div class="list-group">
+                    <div class="list-row leaf-text">
+                        <div class="list-item">
+                            <div class="bullet">*</div>
+                            <div class="list-text">Reads</div>
+                        </div>
+                        <div class="inline-comment"></div>
+                    </div>
+                </div>
+                <div class="list-group">
+                    <div class="list-row leaf-text">
+                        <div class="list-item">
+                            <div class="bullet">*</div>
+                            <div class="list-text">Writes only if needed</div>
+                        </div>
+                        <div class="inline-comment"></div>
+                    </div>
+                    <div class="nested-group">
+                        <div class="blank"></div>
+                    </div>
+                </div>
+                <div class="line-group">
+                    <div class="line level-2">
+                        <div class="text-line">JSX</div>
+                        <div class="inline-comment"></div>
+                    </div>
+                    <div class="nested-group">
+                        <div class="list-group">
+                            <div class="list-row leaf-text">
+                                <div class="list-item">
+                                    <div class="bullet">-</div>
+                                    <div class="list-text">Compiles into JavaScript</div>
+                                </div>
+                                <div class="inline-comment"></div>
+                            </div>
+                        </div>
+                        <div class="list-group">
+                            <div class="list-row leaf-text">
+                                <div class="list-item">
+                                    <div class="bullet">-</div>
+                                    <div class="list-text">Extends JavaScript* Creates React elements</div>
+                                </div>
+                                <div class="inline-comment"></div>
+                            </div>
+                        </div>
+                        <div class="line-group">
+                            <div class="line level-3">
+                                <div class="text-line">Has</div>
+                                <div class="inline-comment"></div>
+                            </div>
+                            <div class="nested-group">
+                                <div class="list-group">
+                                    <div class="list-row level-4">
+                                        <div class="list-item">
+                                            <div class="bullet">-</div>
+                                            <div class="list-text">name</div>
+                                        </div>
+                                        <div class="inline-comment"></div>
+                                    </div>
+                                    <div class="nested-group">
+                                        <div class="list-group">
+                                            <div class="list-row level-5">
+                                                <div class="list-item">
+                                                    <div class="bullet">-</div>
+                                                    <div class="list-text">child tags</div>
+                                                </div>
+                                                <div class="inline-comment"></div>
+                                            </div>
+                                            <div class="nested-group">
+                                                <div class="line-group">
+                                                    <div class="line leaf-text">
+                                                        <div class="text-line">realated stuff</div>
+                                                        <div class="inline-comment"></div>
+                                                    </div>
+                                                    <div class="nested-group">
+                                                        <div class="blank"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="line-group">
+                                                    <div class="line leaf-text">
+                                                        <div class="text-line">like these</div>
+                                                        <div class="inline-comment"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="line-group">
+                                                    <div class="line leaf-text">
+                                                        <div class="text-line">...</div>
+                                                        <div class="inline-comment"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="list-group">
+                                    <div class="list-row level-4">
+                                        <div class="list-item">
+                                            <div class="bullet">-</div>
+                                            <div class="list-text">id</div>
+                                        </div>
+                                        <div class="inline-comment"></div>
+                                    </div>
+                                    <div class="nested-group">
+                                        <div class="line-group">
+                                            <div class="line leaf-text">
+                                                <div class="text-line">>>> blah</div>
+                                                <div class="inline-comment"></div>
+                                            </div>
+                                            <div class="nested-group">
+                                                <div class="blank"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="line-group">
+                    <div class="line level-2">
+                        <div class="text-line">Isomorphic rendering</div>
+                        <div class="inline-comment"></div>
+                    </div>
+                    <div class="nested-group">
+                        <div class="list-group">
+                            <div class="list-row leaf-text">
+                                <div class="list-item">
+                                    <div class="bullet">-</div>
+                                    <div class="list-text">renders components on client and server</div>
+                                </div>
+                                <div class="inline-comment">
+                                    <- reseach this</div> </div> <div class="nested-group">
+                                        <div class="blank"></div>
+                                </div>
+                            </div>
+                            <div class="line-group">
+                                <div class="line level-3">
+                                    <div class="text-line">Notes:</div>
+                                    <div class="inline-comment"></div>
+                                </div>
+                                <div class="nested-group">
+                                    <div class="line-group">
+                                        <div class="line level-4">
+                                            <div class="text-line">JavaScript-driven MVCs</div>
+                                            <div class="inline-comment"></div>
+                                        </div>
+                                        <div class="nested-group">
+                                            <div class="line-group">
+                                                <div class="line leaf-text">
+                                                    <div class="text-line">/*</div>
+                                                    <div class="inline-comment"></div>
+                                                </div>
+                                            </div>
+                                            <div class="list-group">
+                                                <div class="list-row level-5">
+                                                    <div class="list-item">
+                                                        <div class="bullet">-</div>
+                                                        <div class="list-text">ie Angular, Backbone, Ember, they all render on DOM load and</div>
+                                                    </div>
+                                                    <div class="inline-comment"></div>
+                                                </div>
+                                                <div class="nested-group">
+                                                    <pre class="invalid-line">                  this can be bery lag</pre>
+                                                </div>
+                                            </div>
+                                            <div class="line-group">
+                                                <div class="line leaf-text">
+                                                    <div class="text-line">*/</div>
+                                                    <div class="inline-comment"></div>
+                                                </div>
+                                            </div>
+                                            <div class="list-group">
+                                                <div class="list-row level-5">
+                                                    <div class="list-item">
+                                                        <div class="bullet">-</div>
+                                                        <div class="list-text">Aren't indexable by search engines unless you are willing to pay</div>
+                                                    </div>
+                                                    <div class="inline-comment"></div>
+                                                </div>
+                                                <div class="nested-group">
+                                                    <pre class="invalid-line">                  for a third party service</pre>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="line-group">
+                                        <div class="line level-4">
+                                            <div class="text-line">installation</div>
+                                            <div class="inline-comment"></div>
+                                        </div>
+                                        <div class="nested-group">
+                                            <div class="line-group">
+                                                <div class="line level-5">
+                                                    <div class="text-line">```<linux>
+                                                    </div>
+                                                    <div class="inline-comment"></div>
+                                                </div>
+                                                <div class="nested-group">
+                                                    <div class="line-group">
+                                                        <div class="line leaf-text">
+                                                            <div class="text-line">npm install <package>
+                                                            </div>
+                                                            <div class="inline-comment"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="line-group">
+                                                <div class="line leaf-text">
+                                                    <div class="text-line">```</div>
+                                                    <div class="inline-comment"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+    
+        <section class="page">
+    <div class="page-title">tests.mdc</div>
+    <div>
+        <section>
+            <div class="heading-title leaf-text"> Heading </div>
+            <div class="nested-group">
+                <div class="blank"></div>
+            </div>
+        </section>
+        <div class="line-group">
+            <div class="line level-1">
+                <div class="text-line">Funtionality</div>
+                <div class="inline-comment"></div>
+            </div>
+            <div class="nested-group">
+                <pre class="invalid-line"> * This is a second level bullet</pre>
+                <div class="blank"></div>
+                <div class="line-group">
+                    <div class="line level-2">
+                        <div class="text-line">Level 2 Heading</div>
+                        <div class="inline-comment"></div>
+                    </div>
+                    <div class="nested-group">
+                        <div class="line-group">
+                            <div class="line leaf-text">
+                                <div class="text-line">Level 2 Body</div>
+                                <div class="inline-comment"></div>
+                            </div>
+                        </div>
+                        <div class="line-group">
+                            <div class="line level-3">
+                                <div class="text-line">Level 2 Body / Level 3 Heading</div>
+                                <div class="inline-comment"></div>
+                            </div>
+                            <div class="nested-group">
+                                <div class="line-group">
+                                    <div class="line leaf-text">
+                                        <div class="text-line">Level 3 Body</div>
+                                        <div class="inline-comment"></div>
+                                    </div>
+                                    <div class="nested-group">
+                                        <div class="blank"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="line-group">
+                            <div class="line level-3">
+                                <div class="text-line">Level 2 Body</div>
+                                <div class="inline-comment"></div>
+                            </div>
+                            <div class="nested-group">
+                                <div class="blank"></div>
+                                <div class="line-group">
+                                    <div class="line level-4">
+                                        <div class="text-line">Type B</div>
+                                        <div class="inline-comment"></div>
+                                    </div>
+                                    <div class="nested-group">
+                                        <pre class="invalid-line">                Col1       |    Col2            Col3</pre>
+                                        <hr class="level-5">
+                                        <div class="nested-group">
+                                            <pre class="invalid-line">                A               True            False</pre>
+                                            <pre class="invalid-line">                A               True            False</pre>
+                                            <div class="blank"></div>
+                                        </div>
+                                        </hr>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="line-group">
+                    <div class="line level-2">
+                        <div class="text-line">Level 2 Heading B</div>
+                        <div class="inline-comment">
+                            <- This works</div> </div> <div class="nested-group">
+                                <div class="blank"></div>
+                                <pre class="invalid-line">        *GTM    Global Trade Management System              // This should not bullet</pre>
+                                <pre class="invalid-line">        EODc    End of the Day Calculations                 <- This is hard to do</pre>
+                                <pre class="invalid-line">                wrapping of text</pre>
+                                <pre class="invalid-line">                very special and difficult </pre>
+                                <pre class="invalid-line">                do later</pre>
+                                <div class="blank"></div>
+                                <div class="blank"></div>
+                                <div class="blank"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <section>
+                <div class="subheading-title leaf-text"> React Overview </div>
+                <div class="nested-group">
+                    <div class="blank"></div>
+                </div>
+            </section>
+            <div class="line-group">
+                <div class="line level-1">
+                    <div class="text-line">Virtual DOM</div>
+                    <div class="inline-comment"></div>
+                </div>
+                <div class="nested-group">
+                    <div class="list-group">
+                        <div class="list-row leaf-text">
+                            <div class="list-item">
+                                <div class="bullet">*</div>
+                                <div class="list-text">Reads</div>
+                            </div>
+                            <div class="inline-comment"></div>
+                        </div>
+                    </div>
+                    <div class="list-group">
+                        <div class="list-row leaf-text">
+                            <div class="list-item">
+                                <div class="bullet">*</div>
+                                <div class="list-text">Writes only if needed</div>
+                            </div>
+                            <div class="inline-comment"></div>
+                        </div>
+                        <div class="nested-group">
+                            <div class="blank"></div>
+                        </div>
+                    </div>
+                    <div class="line-group">
+                        <div class="line level-2">
+                            <div class="text-line">JSX</div>
+                            <div class="inline-comment"></div>
+                        </div>
+                        <div class="nested-group">
+                            <div class="list-group">
+                                <div class="list-row leaf-text">
+                                    <div class="list-item">
+                                        <div class="bullet">-</div>
+                                        <div class="list-text">Compiles into JavaScript</div>
+                                    </div>
+                                    <div class="inline-comment"></div>
+                                </div>
+                            </div>
+                            <div class="list-group">
+                                <div class="list-row leaf-text">
+                                    <div class="list-item">
+                                        <div class="bullet">-</div>
+                                        <div class="list-text">Extends JavaScript* Creates React elements</div>
+                                    </div>
+                                    <div class="inline-comment"></div>
+                                </div>
+                            </div>
+                            <div class="line-group">
+                                <div class="line level-3">
+                                    <div class="text-line">Has</div>
+                                    <div class="inline-comment"></div>
+                                </div>
+                                <div class="nested-group">
+                                    <div class="list-group">
+                                        <div class="list-row level-4">
+                                            <div class="list-item">
+                                                <div class="bullet">-</div>
+                                                <div class="list-text">name</div>
+                                            </div>
+                                            <div class="inline-comment"></div>
+                                        </div>
+                                        <div class="nested-group">
+                                            <div class="list-group">
+                                                <div class="list-row level-5">
+                                                    <div class="list-item">
+                                                        <div class="bullet">-</div>
+                                                        <div class="list-text">child tags</div>
+                                                    </div>
+                                                    <div class="inline-comment"></div>
+                                                </div>
+                                                <div class="nested-group">
+                                                    <div class="line-group">
+                                                        <div class="line leaf-text">
+                                                            <div class="text-line">realated stuff</div>
+                                                            <div class="inline-comment"></div>
+                                                        </div>
+                                                        <div class="nested-group">
+                                                            <div class="blank"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="line-group">
+                                                        <div class="line leaf-text">
+                                                            <div class="text-line">like these</div>
+                                                            <div class="inline-comment"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="line-group">
+                                                        <div class="line leaf-text">
+                                                            <div class="text-line">...</div>
+                                                            <div class="inline-comment"></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="list-group">
+                                        <div class="list-row level-4">
+                                            <div class="list-item">
+                                                <div class="bullet">-</div>
+                                                <div class="list-text">id</div>
+                                            </div>
+                                            <div class="inline-comment"></div>
+                                        </div>
+                                        <div class="nested-group">
+                                            <div class="line-group">
+                                                <div class="line leaf-text">
+                                                    <div class="text-line">>>> blah</div>
+                                                    <div class="inline-comment"></div>
+                                                </div>
+                                                <div class="nested-group">
+                                                    <div class="blank"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="line-group">
+                        <div class="line level-2">
+                            <div class="text-line">Isomorphic rendering</div>
+                            <div class="inline-comment"></div>
+                        </div>
+                        <div class="nested-group">
+                            <div class="list-group">
+                                <div class="list-row leaf-text">
+                                    <div class="list-item">
+                                        <div class="bullet">-</div>
+                                        <div class="list-text">renders components on client and server</div>
+                                    </div>
+                                    <div class="inline-comment">
+                                        <- reseach this</div> </div> <div class="nested-group">
+                                            <div class="blank"></div>
+                                    </div>
+                                </div>
+                                <div class="line-group">
+                                    <div class="line level-3">
+                                        <div class="text-line">Notes:</div>
+                                        <div class="inline-comment"></div>
+                                    </div>
+                                    <div class="nested-group">
+                                        <div class="line-group">
+                                            <div class="line level-4">
+                                                <div class="text-line">JavaScript-driven MVCs</div>
+                                                <div class="inline-comment"></div>
+                                            </div>
+                                            <div class="nested-group">
+                                                <div class="line-group">
+                                                    <div class="line leaf-text">
+                                                        <div class="text-line">/*</div>
+                                                        <div class="inline-comment"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="list-group">
+                                                    <div class="list-row level-5">
+                                                        <div class="list-item">
+                                                            <div class="bullet">-</div>
+                                                            <div class="list-text">ie Angular, Backbone, Ember, they all render on DOM load and</div>
+                                                        </div>
+                                                        <div class="inline-comment"></div>
+                                                    </div>
+                                                    <div class="nested-group">
+                                                        <pre class="invalid-line">                  this can be bery lag</pre>
+                                                    </div>
+                                                </div>
+                                                <div class="line-group">
+                                                    <div class="line leaf-text">
+                                                        <div class="text-line">*/</div>
+                                                        <div class="inline-comment"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="list-group">
+                                                    <div class="list-row level-5">
+                                                        <div class="list-item">
+                                                            <div class="bullet">-</div>
+                                                            <div class="list-text">Aren't indexable by search engines unless you are willing to pay</div>
+                                                        </div>
+                                                        <div class="inline-comment"></div>
+                                                    </div>
+                                                    <div class="nested-group">
+                                                        <pre class="invalid-line">                  for a third party service</pre>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="line-group">
+                                            <div class="line level-4">
+                                                <div class="text-line">installation</div>
+                                                <div class="inline-comment"></div>
+                                            </div>
+                                            <div class="nested-group">
+                                                <div class="line-group">
+                                                    <div class="line level-5">
+                                                        <div class="text-line">```<linux>
+                                                        </div>
+                                                        <div class="inline-comment"></div>
+                                                    </div>
+                                                    <div class="nested-group">
+                                                        <div class="line-group">
+                                                            <div class="line leaf-text">
+                                                                <div class="text-line">npm install <package>
+                                                                </div>
+                                                                <div class="inline-comment"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="line-group">
+                                                    <div class="line leaf-text">
+                                                        <div class="text-line">```</div>
+                                                        <div class="inline-comment"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+</section>
+    
+</div>
+</div>
+</body>
+</html> 

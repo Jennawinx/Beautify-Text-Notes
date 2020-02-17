@@ -7,14 +7,19 @@
 <!-- <style>
 
 body {
-    margin: 0;
-    padding: 0;
     font-family: Courier New, Courier, monospace;
     font-size: 1em;
+    line-height: 1.4em;
+    margin: 0;
+    padding: 0;
 }
 
 pre {
     font-size: larger;
+}
+
+.blank {
+    margin: 1em 0;
 }
 
 .container {
@@ -23,82 +28,149 @@ pre {
 }
 
 .main {
-    background: white;
+    background: inherit;
     margin: auto;
-    max-width: 1200px;
+    min-width: 200px;
+    max-width: 150ch;
+    padding: 1em;
 }
 
 .notebook-header {
-    background: plum;
-    padding: 1em;
+    background: #857290;
+    /*border: 1px solid gray;*/
+    border-radius: 0.5em;
+    box-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12);
+    padding: 0.5em 1em;
 }
 
 .notebook-timestamp {
     position: absolute;
-    color: darkslategray;
+    color: #efeae5;
 }
 
 .notebook-title {
+    color: white;
     font-weight: bold;
-    font-size: 2em;
+    font-size: 1.75em;
     text-align: center;
-    padding: 0.5em;
+    padding-top: 1.2em;
+    padding-bottom: 0.8em;
 }
 
 .page {
-    padding: 1em;
+    background-color: #efeae5;
+    /*border: 3px solid silver;*/
+    border-radius: 0.5em;
+    box-shadow:  0px 3px 3px -2px rgba(0,0,0,0.2), 0px 3px 4px 0px rgba(0,0,0,0.14), 0px 1px 8px 0px rgba(0,0,0,0.12);
+    padding: 1em 1.5em;
 }
 
 .page-title {
-    color: lightgray;
+    color: gray;
+    position: relative;
     text-align: right;
+    top: 0.5em;
 }
 
-.heading {
+.heading-title {
+    border-bottom: 4px solid silver;
     font-size: 1.5em;
-    border-bottom: 1px solid gray;
-    margin-bottom: 0.2em;
+    margin-bottom: 0.25em;
+    padding: 0.25em 0;
     text-align: center;
 }
 
-.subheading {
+.subheading-title {
+    border-bottom: 4px dashed lightgray;
     font-size: 1.25em;
+    font-weight: bold;
+    margin-bottom: 0.25em;
+    padding: 0.25em 0;
 }
 
-.note-body {
+hr {
+    background: silver;
+    border: none;
+    height: 4px;
+}
+
+.nested-group {
     margin-left: 2ch;
 }
 
+.list-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
 .list-item {
-    
+    display: flex;
+    flex-grow: 1;
 }
 
 .bullet {
-    
+    display: inline-block;
+    margin-right: 1ch; 
+    text-align: right;
+    min-width: 3ch;
 }
 
 .list-text {
-    
+    display: inline-block;
+    margin-right: 1ch;
+}
+
+.list-row + .nested-group {
+    margin-left: 5ch; 
 }
 
 .inline-comment {
     color: mediumseagreen;
+    font-weight: normal;
+    width: 100%;
 }
 
-.note-body {
-    
+.text-line + .inline-comment, .list-item + .inline-comment {
+    max-width: 40ch;
+}
+
+.list-item + .inline-comment {
+    margin-left: 4ch;
 }
 
 .line {
-    
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .text-line {
-    
+    flex-grow: 1;
 }
 
-.leaf-text {
+.line .leaf-text {
     color: black;
+}
+
+.line.level-1 {
+    font-weight: bold;
+    color: darkmagenta;
+}
+
+.line.level-2 {
+    font-weight: bold;
+    color: darkcyan;
+}
+
+.line.level-3 {
+    font-weight: bold;
+    color: mediumvioletred;
+}
+
+.line.level-4 {
+    font-weight: bold;
+    color: chocolate;
 }
 </style> -->
 <link rel="stylesheet" type="text/css" href="../resources/content.css">
@@ -107,105 +179,154 @@ pre {
 <div class="container">
 <div class="main">
     <div class="notebook-header">
-        <div class=notebook-timestamp>Sun Feb 16 19:30:14 EST 2020</div>    
+        <div class=notebook-timestamp>Mon Feb 17 00:26:21 EST 2020</div>    
         <div class=notebook-title>Test1 Notes</div>
     </div>
     <section class="page">
     <div class="page-title">test1.mdc</div>
-    <div><br />
-        <section class="heading"><span class="level-1"> React </span>
-            <div class="note-body"></div>
+    <div>
+        <div class="blank"></div>
+        <section>
+            <div class="heading-title leaf-text"> React </div>
         </section>
-        <div class="leaf-text">
-            <div class="line">
-                <div class="text-line"></div>
+        <div class="line-group">
+            <div class="line leaf-text">
                 <div class="inline-comment">// hi</div>
             </div>
-            <div class="note-body"></div>
         </div>
-        <section class="subheading"><span class="level-1"> React Overview </span>
-            <div class="note-body"><br /></div>
+        <section>
+            <div class="subheading-title leaf-text"> React Overview </div>
+            <div class="nested-group">
+                <div class="blank"></div>
+            </div>
         </section>
-        <div class="level-1">
-            <div class="line">
+        <div class="line-group">
+            <div class="line level-1">
                 <div class="text-line">Virtual DOM</div>
                 <div class="inline-comment">
-                    <- 0</div> </div> <div class="note-body"><br />
-                        <div class="leaf-text">
-                            <div class="list-item">
-                                <div class="bullet">*</div>
-                                <div class="list-text">Reads</div>
+                    <- 0</div> </div> <div class="nested-group">
+                        <div class="blank"></div>
+                        <div class="list-group">
+                            <div class="list-row leaf-text">
+                                <div class="list-item">
+                                    <div class="bullet">*</div>
+                                    <div class="list-text">Reads</div>
+                                </div>
                                 <div class="inline-comment"></div>
                             </div>
-                            <div class="note-body"></div>
                         </div>
-                        <div class="level-2">
-                            <div class="list-item">
-                                <div class="bullet">*</div>
-                                <div class="list-text">Writes only if needed</div>
+                        <div class="list-group">
+                            <div class="list-row leaf-text">
+                                <div class="list-item">
+                                    <div class="bullet">*</div>
+                                    <div class="list-text">Here is a super mega long one just to see what happens ................. la la la</div>
+                                </div>
+                                <div class="inline-comment">// how will this comment do ??? hmmm i wonder .... is this long enough?</div>
+                            </div>
+                        </div>
+                        <div class="list-group">
+                            <div class="list-row level-2">
+                                <div class="list-item">
+                                    <div class="bullet">*</div>
+                                    <div class="list-text">What if I do this</div>
+                                </div>
                                 <div class="inline-comment"></div>
                             </div>
-                            <div class="note-body"><br /></div>
+                            <div class="nested-group">
+                                <div class="line-group">
+                                    <div class="line leaf-text">
+                                        <div class="inline-comment">// lovely</div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="level-2">
-                            <div class="line">
+                        <div class="list-group">
+                            <div class="list-row leaf-text">
+                                <div class="list-item">
+                                    <div class="bullet">*</div>
+                                    <div class="list-text">Writes only if needed</div>
+                                </div>
+                                <div class="inline-comment">// this is a must</div>
+                            </div>
+                            <div class="nested-group">
+                                <div class="blank"></div>
+                                <div class="blank"></div>
+                            </div>
+                        </div>
+                        <div class="line-group">
+                            <div class="line level-2">
                                 <div class="text-line">JSX</div>
                                 <div class="inline-comment">
-                                    <- 1</div> </div> <div class="note-body"><br />
+                                    <- 1</div> </div> <div class="nested-group">
+                                        <div class="blank"></div>
                                         <pre class="invalid-line">                sefi er **I'm invalid** s--c cs</pre>
-                                        <div>
-                                            <hr class="level-3" />
-                                            <div class="note-body"><br /></div>
+                                        <hr class="leaf-text">
+                                        <div class="nested-group">
+                                            <div class="blank"></div>
                                         </div>
-                                        <div class="level-3">
-                                            <div class="list-item">
-                                                <div class="bullet">-</div>
-                                                <div class="list-text">Compiles into JavaScript</div>
+                                        </hr>
+                                        <div class="list-group">
+                                            <div class="list-row leaf-text">
+                                                <div class="list-item">
+                                                    <div class="bullet">-</div>
+                                                    <div class="list-text">Compiles into JavaScript</div>
+                                                </div>
                                                 <div class="inline-comment"></div>
                                             </div>
-                                            <div class="note-body"><br /></div>
+                                            <div class="nested-group">
+                                                <div class="blank"></div>
+                                            </div>
                                         </div>
-                                        <section class="subheading"><span class="level-3"> Happy </span>
-                                            <div class="note-body">
-                                                <div class="leaf-text">
-                                                    <div class="list-item">
-                                                        <div class="bullet">-</div>
-                                                        <div class="list-text">Extends JavaScript* Creates React elements</div>
+                                        <section>
+                                            <div class="subheading-title level-3"> Happy </div>
+                                            <div class="nested-group">
+                                                <div class="list-group">
+                                                    <div class="list-row leaf-text">
+                                                        <div class="list-item">
+                                                            <div class="bullet">-</div>
+                                                            <div class="list-text">Extends JavaScript* Creates React elements</div>
+                                                        </div>
                                                         <div class="inline-comment"></div>
                                                     </div>
-                                                    <div class="note-body"></div>
                                                 </div>
                                             </div>
                                         </section>
-                                        <div class="leaf-text">
-                                            <div class="line">
+                                        <div class="line-group">
+                                            <div class="line level-3">
                                                 <div class="text-line">Has</div>
                                                 <div class="inline-comment">
-                                                    <- 2</div> </div> <div class="note-body">
-                                                        <div class="leaf-text">
-                                                            <div class="list-item">
-                                                                <div class="bullet">-</div>
-                                                                <div class="list-text">name</div>
+                                                    <- 2</div> </div> <div class="nested-group">
+                                                        <div class="list-group">
+                                                            <div class="list-row level-4">
+                                                                <div class="list-item">
+                                                                    <div class="bullet">-</div>
+                                                                    <div class="list-text">name</div>
+                                                                </div>
                                                                 <div class="inline-comment">
-                                                                    <- 3</div> </div> <div class="note-body">
-                                                                        <div class="leaf-text">
-                                                                            <div class="list-item">
-                                                                                <div class="bullet">-</div>
-                                                                                <div class="list-text">child tags</div>
+                                                                    <- 3</div> </div> <div class="nested-group">
+                                                                        <div class="list-group">
+                                                                            <div class="list-row level-5">
+                                                                                <div class="list-item">
+                                                                                    <div class="bullet">-</div>
+                                                                                    <div class="list-text">child tags</div>
+                                                                                </div>
                                                                                 <div class="inline-comment">
-                                                                                    <- 4</div> </div> <div class="note-body">
-                                                                                        <div class="level-6">
-                                                                                            <div class="line">
+                                                                                    <- 4</div> </div> <div class="nested-group">
+                                                                                        <div class="line-group">
+                                                                                            <div class="line leaf-text">
                                                                                                 <div class="text-line">realated stuff</div>
                                                                                                 <div class="inline-comment"></div>
                                                                                             </div>
-                                                                                            <div class="note-body"><br /></div>
+                                                                                            <div class="nested-group">
+                                                                                                <div class="blank"></div>
+                                                                                            </div>
                                                                                         </div>
-                                                                                        <div class="level-6">
-                                                                                            <div class="line">
+                                                                                        <div class="line-group">
+                                                                                            <div class="line leaf-text">
                                                                                                 <div class="text-line">like these</div>
                                                                                                 <div class="inline-comment">
-                                                                                                    <- 5</div> </div> <div class="note-body"><br />
+                                                                                                    <- 5</div> </div> <div class="nested-group">
+                                                                                                        <div class="blank"></div>
                                                                                                 </div>
                                                                                             </div>
                                                                                         </div>

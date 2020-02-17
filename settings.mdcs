@@ -1,7 +1,7 @@
 root-dir:           ./test-resources/
 save-dir:           ./test-resources/
-save-as:            test1.html
+save-as:            testAll.html
 color-level-1:      red
 color-level-2:      orange
 color-level-3:      yellow
-notebook-name:      Test1 Notes
+notebook-name:      Testing All Formats
