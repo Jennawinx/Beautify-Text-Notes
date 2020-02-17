@@ -23,45 +23,38 @@
     "leaf-text"))
 
 (defn page 
-  [{:keys [title]} rendered-children & [level]]
+  [{:keys [title]} _]
   [:section.page 
-    [:div.page-title title]
-    rendered-children])
+    [:div.page-title title]])
 
 (defn heading 
-  [{:keys [text]} rendered-children level]
+  [{:keys [text]} leveltag]
   [:section.heading
-    [:span {:class (str "level-" level)} text] 
-    rendered-children])
+    [:div.heading-title {:class {:class leveltag}} text]])
 
 (defn subheading 
-  [{:keys [text]} rendered-children level]
+  [{:keys [text]} leveltag]
   [:section.subheading  
-    [:span {:class (str "level-" level)} text] 
-    rendered-children])
+    [:div.subheading-title {:class {:class leveltag}} text]])
 
 (defn divider
-  [_ rendered-children level]
-  [:div 
-    [:hr {:class (str "level-" level)}]
-    rendered-children])
+  [_ leveltag]
+  [:hr {:class leveltag}])
 
 (defn text-line
-  [{:keys [text inline-comment]} rendered-children level]
-  [:div {:class (determine-class-level rendered-children level)}
-    [:div.line 
+  [{:keys [text inline-comment]} leveltag]
+  [:div.line-group
+    [:div.line {:class {:class leveltag}}
       [:div.text-line text]
-      [:div.inline-comment inline-comment]]
-    rendered-children])
+      [:div.inline-comment inline-comment]]])
 
 (defn list-item 
-  [{:keys [text symbol inline-comment]} rendered-children level]
-  [:div {:class (determine-class-level rendered-children level)}
-    [:div.list-item
+  [{:keys [text symbol inline-comment]} leveltag]
+  [:div.list-group 
+    [:div.list-item {:class leveltag}
       [:div.bullet symbol]
       [:div.list-text text]
-      [:div.inline-comment inline-comment]]
-    rendered-children])
+      [:div.inline-comment inline-comment]]])
 
 (def render 
   {:invalid-line invalid-line
@@ -81,14 +74,17 @@
       (map #(create-hiccup % level) structure)
       (let [render-fn (get render type)] 
          (if children
-            (render-fn structure 
-              (-> (create-hiccup children (inc level))
-                  (into 
-                    (if plain-wrapper
-                      [:div]
-                      [:div.note-body]))
-                  (vec))
-              level)
+            (let [child-level       (inc level)
+                  rendered-children (-> (create-hiccup children child-level)
+                                        (into 
+                                          (if plain-wrapper
+                                            [:div]
+                                            [:div.note-body]))
+                                        (vec))
+                  level-tag         (determine-class-level rendered-children child-level)]
+            (concat 
+              (render-fn structure level-tag)
+              rendered-children))
             (render-fn structure))))))
 
 ;; REMOVE
