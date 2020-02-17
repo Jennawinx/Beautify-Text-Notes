@@ -8,20 +8,20 @@ Make sure that things that aren't supposed to have children don't crash
 when you give them some
 
 Release 0 
-o nested body structure
-o lists
-o inline-comment
+* nested body structure
+* lists
+* inline-comment
 
 Release 1
-o rule
-o headings
-o Subheadings
+* rule
+* headings
+* Subheadings
 - Unlined tables
 
 Release 2
 - block-comment
 - block-code
-o inline-code
+* inline-code
 - plaintext
 - hanging indent
 
