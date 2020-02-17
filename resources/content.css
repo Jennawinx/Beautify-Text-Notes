@@ -3,6 +3,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: Courier New, Courier, monospace;
+    font-size: 1em;
 }
 
 pre {
@@ -10,19 +11,51 @@ pre {
 }
 
 .container {
-    
+    background: gainsboro;
+    min-height: 100vh;
 }
 
 .main {
-    
+    background: white;
+    margin: auto;
+    max-width: 1200px;
+}
+
+.notebook-header {
+    background: plum;
+    padding: 1em;
+}
+
+.notebook-timestamp {
+    position: absolute;
+    color: darkslategray;
+}
+
+.notebook-title {
+    font-weight: bold;
+    font-size: 2em;
+    text-align: center;
+    padding: 0.5em;
 }
 
 .page {
-    
+    padding: 1em;
 }
 
 .page-title {
-    
+    color: lightgray;
+    text-align: right;
+}
+
+.heading {
+    font-size: 1.5em;
+    border-bottom: 1px solid gray;
+    margin-bottom: 0.2em;
+    text-align: center;
+}
+
+.subheading {
+    font-size: 1.25em;
 }
 
 .note-body {
@@ -55,4 +88,8 @@ pre {
 
 .text-line {
     
+}
+
+.leaf-text {
+    color: black;
 }

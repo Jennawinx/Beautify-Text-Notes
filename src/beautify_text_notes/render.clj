@@ -6,50 +6,62 @@
     [selmer.parser :as sp]
     clojure.pprint))
 
+(defn blank
+  [_]
+  [:br])
+
+(defn invalid-line 
+  [{:keys [text]}]
+  [:pre.invalid-line text])
+
+(defn determine-class-level 
+  [rendered-children level]
+  ;; TODO probably shouldn't determine it like this?
+  (if (some #(= [:br] %) 
+            (rest rendered-children)) 
+    (str "level-" level)
+    "leaf-text"))
+
 (defn page 
-  [{:keys [title]} rendered-children]
+  [{:keys [title]} rendered-children & [level]]
   [:section.page 
     [:div.page-title title]
     rendered-children])
 
 (defn heading 
-  [{:keys [text]} rendered-children]
-  [:section.heading text 
+  [{:keys [text]} rendered-children level]
+  [:section.heading
+    [:span {:class (str "level-" level)} text] 
     rendered-children])
 
 (defn subheading 
-  [{:keys [text]} rendered-children]
-  [:section.subheading text 
+  [{:keys [text]} rendered-children level]
+  [:section.subheading  
+    [:span {:class (str "level-" level)} text] 
     rendered-children])
 
 (defn divider
-  [_ rendered-children]
+  [_ rendered-children level]
   [:div 
-    [:hr]
+    [:hr {:class (str "level-" level)}]
     rendered-children])
 
-(defn blank
-  [_]
-  [:br])
-
 (defn text-line
-  [{:keys [text inline-comment]} rendered-children]
-  [:div.line 
-    [:div.text-line text]
-    [:div.inline-comment inline-comment]
+  [{:keys [text inline-comment]} rendered-children level]
+  [:div {:class (determine-class-level rendered-children level)}
+    [:div.line 
+      [:div.text-line text]
+      [:div.inline-comment inline-comment]]
     rendered-children])
 
 (defn list-item 
-  [{:keys [text symbol inline-comment]} rendered-children]
-  [:div.list-item
-    [:div.bullet symbol]
-    [:div.list-text text]
-    [:div.inline-comment inline-comment]
+  [{:keys [text symbol inline-comment]} rendered-children level]
+  [:div {:class (determine-class-level rendered-children level)}
+    [:div.list-item
+      [:div.bullet symbol]
+      [:div.list-text text]
+      [:div.inline-comment inline-comment]]
     rendered-children])
-
-(defn invalid-line 
-  [{:keys [text]}]
-  [:pre.invalid-line text])
 
 (def render 
   {:invalid-line invalid-line
@@ -62,19 +74,22 @@
    :page         page})
 
 (defn create-hiccup 
-  [{:keys [type children plain-wrapper] :as structure}]
-  (if (sequential? structure)
-    (map create-hiccup structure)
-    (let [render-fn (get render type)] 
-       (if children
-          (render-fn structure 
-            (-> (create-hiccup children)
-                (into 
-                  (if plain-wrapper
-                    [:div]
-                    [:div.note-body]))
-                (vec)))
-          (render-fn structure)))))
+  ([structure]
+    (create-hiccup structure 0))
+  ([{:keys [type children plain-wrapper] :as structure} level]
+    (if (sequential? structure)
+      (map #(create-hiccup % level) structure)
+      (let [render-fn (get render type)] 
+         (if children
+            (render-fn structure 
+              (-> (create-hiccup children (inc level))
+                  (into 
+                    (if plain-wrapper
+                      [:div]
+                      [:div.note-body]))
+                  (vec))
+              level)
+            (render-fn structure))))))
 
 ;; REMOVE
 (defn pt [x]
@@ -87,6 +102,8 @@
        (h/html)
        (bw/beautify-html)
        (assoc {:notebook-name notebook-name
-               :css           (slurp "./resources/content.css")} 
+               :css           (slurp "./resources/content.css")
+               :time-stamp    (.toString (java.util.Date.))
+              } 
                :content)
        (sp/render-file "content.html")))

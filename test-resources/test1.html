@@ -4,12 +4,13 @@
 <head>
 <meta charset="utf-8">
 <title>Test1 Notes</title>
-<style>
+<!-- <style>
 
 body {
     margin: 0;
     padding: 0;
     font-family: Courier New, Courier, monospace;
+    font-size: 1em;
 }
 
 pre {
@@ -17,19 +18,51 @@ pre {
 }
 
 .container {
-    
+    background: gainsboro;
+    min-height: 100vh;
 }
 
 .main {
-    
+    background: white;
+    margin: auto;
+    max-width: 1200px;
+}
+
+.notebook-header {
+    background: plum;
+    padding: 1em;
+}
+
+.notebook-timestamp {
+    position: absolute;
+    color: darkslategray;
+}
+
+.notebook-title {
+    font-weight: bold;
+    font-size: 2em;
+    text-align: center;
+    padding: 0.5em;
 }
 
 .page {
-    
+    padding: 1em;
 }
 
 .page-title {
-    
+    color: lightgray;
+    text-align: right;
+}
+
+.heading {
+    font-size: 1.5em;
+    border-bottom: 1px solid gray;
+    margin-bottom: 0.2em;
+    text-align: center;
+}
+
+.subheading {
+    font-size: 1.25em;
 }
 
 .note-body {
@@ -64,99 +97,128 @@ pre {
     
 }
 
-</style>
+.leaf-text {
+    color: black;
+}
+</style> -->
+<link rel="stylesheet" type="text/css" href="../resources/content.css">
 </head>
 <body>
 <div class="container">
 <div class="main">
+    <div class="notebook-header">
+        <div class=notebook-timestamp>Sun Feb 16 19:30:14 EST 2020</div>    
+        <div class=notebook-title>Test1 Notes</div>
+    </div>
     <section class="page">
     <div class="page-title">test1.mdc</div>
     <div><br />
-        <section class="heading"> React <div class="note-body"></div>
+        <section class="heading"><span class="level-1"> React </span>
+            <div class="note-body"></div>
         </section>
-        <div class="line">
-            <div class="text-line"></div>
-            <div class="inline-comment">// hi</div>
+        <div class="leaf-text">
+            <div class="line">
+                <div class="text-line"></div>
+                <div class="inline-comment">// hi</div>
+            </div>
             <div class="note-body"></div>
         </div>
-        <section class="subheading"> React Overview <div class="note-body"><br /></div>
+        <section class="subheading"><span class="level-1"> React Overview </span>
+            <div class="note-body"><br /></div>
         </section>
-        <div class="line">
-            <div class="text-line">Virtual DOM</div>
-            <div class="inline-comment">
-                <- 0</div> <div class="note-body"><br />
-                    <div class="list-item">
-                        <div class="bullet">*</div>
-                        <div class="list-text">Reads</div>
-                        <div class="inline-comment"></div>
-                        <div class="note-body"></div>
-                    </div>
-                    <div class="list-item">
-                        <div class="bullet">*</div>
-                        <div class="list-text">Writes only if needed</div>
-                        <div class="inline-comment"></div>
-                        <div class="note-body"><br /></div>
-                    </div>
-                    <div class="line">
-                        <div class="text-line">JSX</div>
-                        <div class="inline-comment">
-                            <- 1</div> <div class="note-body"><br />
-                                <pre class="invalid-line">                sefi er **I'm invalid** s--c cs</pre>
-                                <div>
-                                    <hr />
-                                    <div class="note-body"><br /></div>
-                                </div>
-                                <div class="list-item">
-                                    <div class="bullet">-</div>
-                                    <div class="list-text">Compiles into JavaScript</div>
-                                    <div class="inline-comment"></div>
-                                    <div class="note-body"><br /></div>
-                                </div>
-                                <section class="subheading"> Happy <div class="note-body">
-                                        <div class="list-item">
-                                            <div class="bullet">-</div>
-                                            <div class="list-text">Extends JavaScript* Creates React elements</div>
-                                            <div class="inline-comment"></div>
-                                            <div class="note-body"></div>
+        <div class="level-1">
+            <div class="line">
+                <div class="text-line">Virtual DOM</div>
+                <div class="inline-comment">
+                    <- 0</div> </div> <div class="note-body"><br />
+                        <div class="leaf-text">
+                            <div class="list-item">
+                                <div class="bullet">*</div>
+                                <div class="list-text">Reads</div>
+                                <div class="inline-comment"></div>
+                            </div>
+                            <div class="note-body"></div>
+                        </div>
+                        <div class="level-2">
+                            <div class="list-item">
+                                <div class="bullet">*</div>
+                                <div class="list-text">Writes only if needed</div>
+                                <div class="inline-comment"></div>
+                            </div>
+                            <div class="note-body"><br /></div>
+                        </div>
+                        <div class="level-2">
+                            <div class="line">
+                                <div class="text-line">JSX</div>
+                                <div class="inline-comment">
+                                    <- 1</div> </div> <div class="note-body"><br />
+                                        <pre class="invalid-line">                sefi er **I'm invalid** s--c cs</pre>
+                                        <div>
+                                            <hr class="level-3" />
+                                            <div class="note-body"><br /></div>
                                         </div>
-                                    </div>
-                                </section>
-                                <div class="line">
-                                    <div class="text-line">Has</div>
-                                    <div class="inline-comment">
-                                        <- 2</div> <div class="note-body">
+                                        <div class="level-3">
                                             <div class="list-item">
                                                 <div class="bullet">-</div>
-                                                <div class="list-text">name</div>
+                                                <div class="list-text">Compiles into JavaScript</div>
+                                                <div class="inline-comment"></div>
+                                            </div>
+                                            <div class="note-body"><br /></div>
+                                        </div>
+                                        <section class="subheading"><span class="level-3"> Happy </span>
+                                            <div class="note-body">
+                                                <div class="leaf-text">
+                                                    <div class="list-item">
+                                                        <div class="bullet">-</div>
+                                                        <div class="list-text">Extends JavaScript* Creates React elements</div>
+                                                        <div class="inline-comment"></div>
+                                                    </div>
+                                                    <div class="note-body"></div>
+                                                </div>
+                                            </div>
+                                        </section>
+                                        <div class="leaf-text">
+                                            <div class="line">
+                                                <div class="text-line">Has</div>
                                                 <div class="inline-comment">
-                                                    <- 3</div> <div class="note-body">
-                                                        <div class="list-item">
-                                                            <div class="bullet">-</div>
-                                                            <div class="list-text">child tags</div>
-                                                            <div class="inline-comment">
-                                                                <- 4</div> <div class="note-body">
-                                                                    <div class="line">
-                                                                        <div class="text-line">realated stuff</div>
-                                                                        <div class="inline-comment"></div>
-                                                                        <div class="note-body"><br /></div>
-                                                                    </div>
-                                                                    <div class="line">
-                                                                        <div class="text-line">like these</div>
-                                                                        <div class="inline-comment">
-                                                                            <- 5</div> <div class="note-body"><br />
+                                                    <- 2</div> </div> <div class="note-body">
+                                                        <div class="leaf-text">
+                                                            <div class="list-item">
+                                                                <div class="bullet">-</div>
+                                                                <div class="list-text">name</div>
+                                                                <div class="inline-comment">
+                                                                    <- 3</div> </div> <div class="note-body">
+                                                                        <div class="leaf-text">
+                                                                            <div class="list-item">
+                                                                                <div class="bullet">-</div>
+                                                                                <div class="list-text">child tags</div>
+                                                                                <div class="inline-comment">
+                                                                                    <- 4</div> </div> <div class="note-body">
+                                                                                        <div class="level-6">
+                                                                                            <div class="line">
+                                                                                                <div class="text-line">realated stuff</div>
+                                                                                                <div class="inline-comment"></div>
+                                                                                            </div>
+                                                                                            <div class="note-body"><br /></div>
+                                                                                        </div>
+                                                                                        <div class="level-6">
+                                                                                            <div class="line">
+                                                                                                <div class="text-line">like these</div>
+                                                                                                <div class="inline-comment">
+                                                                                                    <- 5</div> </div> <div class="note-body"><br />
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                </div>
+                                                                            </div>
                                                                         </div>
-                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                 </div>
                                             </div>
-                                    </div>
+                                        </div>
                                 </div>
-                        </div>
-                    </div>
-            </div>
-        </div>
-    </div>
 </section>
 </div>
 </div>
