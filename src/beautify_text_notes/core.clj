@@ -12,6 +12,8 @@
 "
 File I/O 
 https://www.tutorialspoint.com/clojure/clojure_file_io.htm
+
+TODO make parser work with tabs
 "
 
 (def default-settings 
@@ -49,6 +51,8 @@ https://www.tutorialspoint.com/clojure/clojure_file_io.htm
      :time-stamp    (.toString (java.util.Date.))
      :pages         rendered-pages}))
 
+(defn prt [x msg] (prn msg) x)
+
 (defn -main
   ""
   []
@@ -69,19 +73,20 @@ https://www.tutorialspoint.com/clojure/clojure_file_io.htm
 
      (-> ;; Read file in list, parse each one, render a html per page
          (map #(-> (p/mdc->structure %)
+                   (prt "mdc->structure complete")
                    (r/create-hiccup)
+                   (prt "structure->hiccup complete")
                    (h/html)
-                   (bw/beautify-html))
+                   (prt "hiccup->html complete")
+                   ;; this can break if there are weird characters
+                   (bw/beautify-html)
+                   (prt "html->pretty-html complete"))
               file-list)
          ;; Add pages to html template and save
          (render-html notebook-name)
-         (create-html save-file))
-
-     #_(-> (p/mdc->structure "./test-resources/test1.mdc")
-         (r/render-structure notebook-name)
-         
-         ; (clojure.pprint/pprint)
-         )     
+         (prt "pages inserted into html template complete")
+         (create-html save-file)
+         (prt "html file generation complete"))
      ))
 
 
