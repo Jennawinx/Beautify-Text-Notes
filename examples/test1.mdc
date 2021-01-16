@@ -1,0 +1,30 @@
+
+======================== React ===========================
+// hi
+--------------------- React Overview ----------------------
+ 
+Virtual DOM                                                 <- 0                                                 
+    
+    * Reads
+    * Here is a super mega long one just to see what happens ................. la la la         // how will this comment do ??? hmmm i wonder .... is this long enough?
+    * What if I do this
+        // lovely
+    * Writes only if needed         // this is a must
+
+               
+    JSX                                                     <- 1
+
+                sefi er **I'm invalid** s--c cs
+        --------------------------------------------------
+                                                        
+        - Compiles into JavaScript
+
+        ------------------- Happy ------------------------  
+            - Extends JavaScript* Creates React elements
+        Has                                                 <- 2
+            - name                                          <- 3
+                - child tags                                <- 4
+                    realated stuff
+
+                    like these                              <- 5
+

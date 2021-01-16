@@ -28,7 +28,7 @@ Types of format structures
         plaintext                           "~~~" wrappers
         inline-code                         ">>>" 
         block-code                          "```" wrappers
-        local-link                          images, lcoal files on the computer
+        local-link                          images, local files on the computer
         external-link                       urls
         unlined-table                       <- make this simiply respect tab alignment
                                                => unlined table

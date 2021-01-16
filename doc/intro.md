@@ -1,3 +1,12 @@
 # Introduction to beautify-text-notes
 
-TODO: write [great documentation](http://jacobian.org/writing/what-to-write/)
+Converts text notes written in a .mdc file into a styled 1 page HTML of beautified notes
+
+## Syntax
+
+Not all is implemented
+[Link](./syntax.txt)
+
+## Example
+
+[mdc](./test1.mdc) -> [html](./test.html)
