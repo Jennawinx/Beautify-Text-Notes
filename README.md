@@ -4,13 +4,14 @@ Beautifies naturally written text notes to an html webpage you can take anywhere
 
 ## Status
 
-This project has is abandoned for now due to inefficient design choices (made this in 2 days for fun)
+This **project has is abandoned** for now due to inefficient design choices (made this in 2 days for fun)
 Thinking of remaking a version 2 in the future :)
 
 Problems and needs for improvements
 * the syntax definition are not regular enough and require too much pre and post processing
 * should not be using regex for parsing
 * takes too many intermediate stages to produce the results
+* the html results are not semantic
 * too slow
 
 ## Try it out
@@ -19,6 +20,7 @@ Run download and run the jar in any folder with your text notes in the .mdc exte
 
 ### Settings
 
+You can configure settings by creating a file named "./settings.mdcs" next to the jar
 Examples of configurable settings are [here](./settings.mdcs)
 
 ### Syntax
