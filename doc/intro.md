@@ -9,4 +9,8 @@ Not all is implemented
 
 ## Example
 
-[mdc](./test1.mdc) -> [html](./test.html)
+[mdc](./test1.mdc) -> [html](./test1.html)
+
+## Mid processing
+
+[Example datastructure](./old-structure.edn)

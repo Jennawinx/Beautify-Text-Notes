@@ -2,34 +2,103 @@
 
 Beautifies naturally written text notes to an html webpage you can take anywhere. 
 
+# Status
+
+This project has is abandoned for now due to inefficient design choices (made this in 2 days for fun)
+Thinking of remaking a version 2 in the future :)
+
+Problems and needs for improvements
+* the syntax definition are not regular enough and require too much pre and post processing
+* should not be using regex for parsing
+* takes too many intermediate stages to produce the results
+* too slow
+
+# Try it out
+
+Run download and run the jar in any folder with your text notes in the .mdc extension. All files in the folder will be converted and combined into 1 beautified html page
+
+### Settings
+
+Examples of configurable settings are [here](./settings.mdcs)
+
+### Syntax
+
+[Link](./doc/syntax.txt)
+
+# Example
+
+mdc
+
+```
+
+======================== React ===========================
+// hi
+--------------------- React Overview ----------------------
+ 
+Virtual DOM                                                 <- 0                                                 
+    
+    * Reads
+    * Here is a super mega long one just to see what happens ................. la la la         // how will this comment do ??? hmmm i wonder .... is this long enough?
+    * What if I do this
+        // lovely
+    * Writes only if needed         // this is a must
+
+               
+    JSX                                                     <- 1
+
+                sefi er **I'm invalid** s--c cs
+        --------------------------------------------------
+                                                        
+        - Compiles into JavaScript
+
+        ------------------- Happy ------------------------  
+            - Extends JavaScript* Creates React elements
+        Has                                                 <- 2
+            - name                                          <- 3
+                - child tags                                <- 4
+                    realated stuff
+
+                    like these                              <- 5
+
+
+```
+
+results
+
+![html notes](./doc/test1.JPG)
+
+# Done
+
+Stage 0 
+* nested body structure
+* lists
+* inline-comment
+
+Stage 1
+* rule
+* headings
+* Subheadings
+
 # Todo
 
 Make sure that things that aren't supposed to have children don't crash
 when you give them some
 
-Release 0 
-* nested body structure
-* lists
-* inline-comment
-
-Release 1
-* rule
-* headings
-* Subheadings
+Stage 1
 - Unlined tables
 
-Release 2
+Stage 2
 - block-comment
 - block-code
 * inline-code
 - plaintext
 - hanging indent
 
-Release 3
+Stage 3
 - wrappers
 - external links
 
-Release 4
+Stage 4
 - meta-data
 - advanced format display
 - optimizations ...?
@@ -41,14 +110,3 @@ FIXME
 ## License
 
 Copyright © 2020 FIXME
-
-This program and the accompanying materials are made available under the
-terms of the Eclipse Public License 2.0 which is available at
-http://www.eclipse.org/legal/epl-2.0.
-
-This Source Code may also be made available under the following Secondary
-Licenses when the conditions for such availability set forth in the Eclipse
-Public License, v. 2.0 are satisfied: GNU General Public License as published by
-the Free Software Foundation, either version 2 of the License, or (at your
-option) any later version, with the GNU Classpath Exception which is available
-at https://www.gnu.org/software/classpath/license.html.

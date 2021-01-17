@@ -5,3 +5,4 @@ color-level-1:      red
 color-level-2:      orange
 color-level-3:      yellow
 notebook-name:      Testing All Formats
+include-files:      [.txt .mdc]
