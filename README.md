@@ -1,8 +1,8 @@
-# beautify-text-notes
+# Beautify Text Notes
 
 Beautifies naturally written text notes to an html webpage you can take anywhere. 
 
-# Status
+## Status
 
 This project has is abandoned for now due to inefficient design choices (made this in 2 days for fun)
 Thinking of remaking a version 2 in the future :)
@@ -13,7 +13,7 @@ Problems and needs for improvements
 * takes too many intermediate stages to produce the results
 * too slow
 
-# Try it out
+## Try it out
 
 Run download and run the jar in any folder with your text notes in the .mdc extension. All files in the folder will be converted and combined into 1 beautified html page
 
@@ -25,7 +25,7 @@ Examples of configurable settings are [here](./settings.mdcs)
 
 [Link](./doc/syntax.txt)
 
-# Example
+## Example
 
 mdc
 
@@ -67,7 +67,7 @@ results
 
 ![html notes](./doc/test1.JPG)
 
-# Done
+## Done
 
 Stage 0 
 * nested body structure
@@ -79,7 +79,7 @@ Stage 1
 * headings
 * Subheadings
 
-# Todo
+## Todo
 
 Make sure that things that aren't supposed to have children don't crash
 when you give them some
