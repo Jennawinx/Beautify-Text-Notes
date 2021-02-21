@@ -16,7 +16,7 @@ Problems and needs for improvements
 
 ## Try it out
 
-Run download and run the jar in any folder with your text notes in the .mdc extension. All files in the folder will be converted and combined into 1 beautified html page
+Download and run the jar in any folder with your text notes in the .mdc extension. All files in the folder will be converted and combined into 1 beautified html page
 
 ### Settings
 
